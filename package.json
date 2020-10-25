@@ -11,11 +11,13 @@
     ]
   },
   "scripts": {
+    "build:frontend": "yarn workspace @packages/frontend run build",
     "build:tsc": "tsc",
     "build": "run-s build:*",
     "clean:dist": "rm -rf ./dist",
     "clean:npm": "rm -rf ./node_modules ./*.lock ./*.log",
     "clean": "run-s clean:*",
+    "dev:frontend": "yarn workspace @packages/frontend run dev",
     "dev:tsc": "ts-node-dev --transpile-only --no-notify ./main.ts",
     "dev": "run-p dev:*",
     "lint": "eslint **/*.{js,ts,vue} --fix",

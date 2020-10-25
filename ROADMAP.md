@@ -1,6 +1,5 @@
 # Roadmap
 
-- Vite / Vue 3 frontend
 - Static files serving in production
 - Dev proxy
 - Mercurius GraphQL server

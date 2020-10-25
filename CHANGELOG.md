@@ -7,3 +7,4 @@
 - Type-safe configuration with dotenv / env-var
 - Fastify backend
 - Winston logger
+- Vite / Vue 3 frontend
