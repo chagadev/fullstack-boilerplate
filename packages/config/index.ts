@@ -2,12 +2,11 @@ import env from "env-var";
 import { config as dotenvConfig } from "dotenv";
 import { resolve } from "path";
 
-const rootPath = resolve(__dirname, "../..").replace("/dist", "");
-dotenvConfig({ path: `${rootPath}/.env` });
-dotenvConfig({ path: `${rootPath}/packages/prisma/.env` });
-
 export interface Config {
-  env: "development" | "production";
+  logger: {
+    level: string;
+  };
+  mode: "development" | "production";
   paths: {
     root: string;
   };
@@ -17,8 +16,16 @@ export interface Config {
   };
 }
 
+const mode = process.env.NODE_ENV || "development";
+const rootPath = resolve(__dirname, "../..").replace("/dist", "");
+dotenvConfig({ path: `${rootPath}/.env` });
+dotenvConfig({ path: `${rootPath}/packages/prisma/.env` });
+
 export const config = {
-  env: process.env.NODE_ENV === "production" ? "production" : "development",
+  mode,
+  logger: {
+    level: env.get("LOGGER_LEVEL").default("info").asString(),
+  },
   paths: {
     root: rootPath,
   },

@@ -1,6 +1,5 @@
 # Roadmap
 
-- Winston logger 
 - Vite / Vue 3 frontend
 - Static files serving in production
 - Dev proxy
