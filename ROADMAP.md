@@ -1,7 +1,5 @@
 # Roadmap
 
-- build / dev / start scripts
-- ESLint / Prettier configuration
 - Paths resolution with module-alias
 - Type-safe configuration with dotenv / env-var
 - Fastify web framework
