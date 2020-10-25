@@ -1,6 +1,8 @@
 {
   "name": "@packages/frontend",
   "version": "0.2.0",
+  "license": "MIT",
+  "private": true,
   "scripts": {
     "build": "vite build",
     "dev": "vite"
