@@ -10,6 +10,12 @@
     "sourceMap": true,
     "declaration": true,
     "skipLibCheck": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@packages/*": [
+        "packages/*"
+      ]
+    }
   }
 }
