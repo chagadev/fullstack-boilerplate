@@ -1,0 +1,9 @@
+{
+  "name": "@packages/backend",
+  "version": "0.2.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "fastify": "^3.7.0"
+  }
+}
