@@ -1,6 +1,5 @@
 # Roadmap
 
-- TypeScript configuration
 - build / dev / start scripts
 - ESLint / Prettier configuration
 - Paths resolution with module-alias
