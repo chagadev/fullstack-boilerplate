@@ -1,0 +1,8 @@
+{
+  "name": "fullstack-boilerplate",
+  "description": "Fullstack application boilerplate",
+  "version": "0.2.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "private": true
+}
