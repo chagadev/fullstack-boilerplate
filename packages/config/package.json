@@ -1,0 +1,10 @@
+{
+  "name": "@packages/config",
+  "version": "0.2.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "env-var": "^6.3.0"
+  }
+}

@@ -4,3 +4,4 @@
 - TypeScript configuration
 - ESLint / Prettier configuration
 - Monorepo paths resolution
+- Type-safe configuration with dotenv / env-var
