@@ -12,13 +12,14 @@
   },
   "scripts": {
     "build:frontend": "yarn workspace @packages/frontend run build",
+    "build:nexus": "ts-node -T ./packages/schema/index.ts --nexus-generate",
     "build:tsc": "tsc",
     "build": "run-s build:*",
     "clean:dist": "rm -rf ./dist",
-    "clean:npm": "rm -rf ./node_modules ./*.lock ./*.log",
+    "clean:npm": "rm -rf ./node_modules ./packages/*/node_modules ./*.lock ./*.log",
     "clean": "run-s clean:*",
     "dev:frontend": "yarn workspace @packages/frontend run dev",
-    "dev:tsc": "ts-node-dev --transpile-only --no-notify ./main.ts",
+    "dev:tsc": "ts-node-dev --transpile-only --no-notify --quiet ./main.ts",
     "dev": "run-p dev:*",
     "lint": "eslint **/*.{js,ts,vue} --fix",
     "start": "NODE_ENV=production node ./dist/main.js"
@@ -38,6 +39,7 @@
     "typescript": "^4.0.3"
   },
   "dependencies": {
+    "graphql": "^15.3.0",
     "module-alias": "^2.2.2"
   }
 }

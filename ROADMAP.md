@@ -1,6 +1,5 @@
 # Roadmap
 
-- Nexus Schema with dummy query / mutation / subscription
 - Villus GraphQL client
 - Backend WebSocket proxy
 - Prisma data model

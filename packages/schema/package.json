@@ -1,0 +1,9 @@
+{
+  "name": "@packages/schema",
+  "version": "0.2.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@nexus/schema": "^0.16.0"
+  }
+}

@@ -11,3 +11,4 @@
 - Serve frontend static files (production)
 - Backend proxy (development)
 - Mercurius GraphQL server
+- Nexus Schema with hello query
