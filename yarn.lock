@@ -1051,7 +1051,7 @@ encodeurl@^1.0.2, encodeurl@~1.0.2:
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
   integrity sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
 
-end-of-stream@^1.1.0:
+end-of-stream@^1.1.0, end-of-stream@^1.4.1:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.4.4.tgz#5ae64a5f45057baf3626ec14da0ca5e4b2431eb0"
   integrity sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==
@@ -1386,10 +1386,39 @@ fastify-error@^0.2.0:
   resolved "https://registry.yarnpkg.com/fastify-error/-/fastify-error-0.2.0.tgz#9a1c28d4f42b6259e7a549671c8e5e2d85660634"
   integrity sha512-zabxsBatj59ROG0fhP36zNdc5Q1/eYeH9oSF9uvfrurZf8/JKfrJbMcIGrLpLWcf89rS6L91RHWm20A/X85hcA==
 
+fastify-http-proxy@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/fastify-http-proxy/-/fastify-http-proxy-4.0.4.tgz#65585974e360b4cdc505f441451b73431fa824c9"
+  integrity sha512-wd4OKpxf5qO5q/sZdAE0Ml0KgcHQ8sBkBiEp/vA0jqA4Jjdnjd7/OkeT6w+H00CByJ2Do2Jsw66VDlE2OEv9wQ==
+  dependencies:
+    fastify-reply-from "^3.1.3"
+    fastify-websocket "^2.0.7"
+    ws "^7.3.1"
+
+fastify-plugin@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-2.3.4.tgz#b17abdc36a97877d88101fb86ad8a07f2c07de87"
+  integrity sha512-I+Oaj6p9oiRozbam30sh39BiuiqBda7yK2nmSPVwDCfIBlKnT8YB3MY+pRQc2Fcd07bf6KPGklHJaQ2Qu81TYQ==
+  dependencies:
+    semver "^7.3.2"
+
 fastify-plugin@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-3.0.0.tgz#cf1b8c8098e3b5a7c8c30e6aeb06903370c054ca"
   integrity sha512-ZdCvKEEd92DNLps5n0v231Bha8bkz1DjnPP/aEz37rz/q42Z5JVLmgnqR4DYuNn3NXAO3IDCPyRvgvxtJ4Ym4w==
+
+fastify-reply-from@^3.1.3:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/fastify-reply-from/-/fastify-reply-from-3.4.0.tgz#a055d3358262bbdb57e817895f479d7f5fb0452e"
+  integrity sha512-q+U77Y1Vt1+fCkpPVcUQDWhQ9HfqjGlF5Ifb1ZCXB+EiOmJJGlZo0CACp4lkwCjiHOR882/8b4e969/6o9NpLQ==
+  dependencies:
+    end-of-stream "^1.4.1"
+    fastify-plugin "^3.0.0"
+    http-errors "^1.8.0"
+    pump "^3.0.0"
+    semver "^7.2.1"
+    tiny-lru "^7.0.0"
+    undici "^2.1.0"
 
 fastify-static@^3.3.0:
   version "3.3.0"
@@ -1405,6 +1434,15 @@ fastify-warning@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/fastify-warning/-/fastify-warning-0.2.0.tgz#e717776026a4493dc9a2befa44db6d17f618008f"
   integrity sha512-s1EQguBw/9qtc1p/WTY4eq9WMRIACkj+HTcOIK1in4MV5aFaQC9ZCIt0dJ7pr5bIf4lPpHvAtP2ywpTNgs7hqw==
+
+fastify-websocket@^2.0.7:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/fastify-websocket/-/fastify-websocket-2.0.10.tgz#759c41f20c4f3a29ff0b80ba523e7212b9e118dc"
+  integrity sha512-cESoKnOsq8DIeYOcnGQbRnNUqegXFUAkrEsVIu0vSyiVL2d1bJnsZo6LwA1W8P77fi2cYVodFBAm13gIY0k5Kg==
+  dependencies:
+    fastify-plugin "^2.3.4"
+    find-my-way "^3.0.4"
+    ws "^7.3.1"
 
 fastify@^3.7.0:
   version "3.7.0"
@@ -1454,7 +1492,7 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
-find-my-way@^3.0.0:
+find-my-way@^3.0.0, find-my-way@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/find-my-way/-/find-my-way-3.0.4.tgz#a485973d1a3fdafd989ac9f12fd2d88e83cda268"
   integrity sha512-Trl/mNAVvTgCpo9ox6yixkwiZUvecKYUQZoAuMCBACsgGqv+FbWe+jE5sBA5+U8LIWrJk/cw8zPV53GPrjTnsw==
@@ -1647,7 +1685,7 @@ http-assert@^1.3.0:
     deep-equal "~1.0.1"
     http-errors "~1.7.2"
 
-http-errors@^1.6.3, http-errors@^1.7.3:
+http-errors@^1.6.3, http-errors@^1.7.3, http-errors@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.8.0.tgz#75d1bbe497e1044f51e4ee9e704a62f28d336507"
   integrity sha512-4I8r0C5JDhT5VkvI47QktDW75rNlGVsUf/8hzjCC/wkWI/jdTRmBb9aI7erSG82r1bjKY3F6k28WnsVxB1C73A==
@@ -3489,6 +3527,11 @@ typescript@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.3.tgz#153bbd468ef07725c1df9c77e8b453f8d36abba5"
   integrity sha512-tEu6DGxGgRJPb/mVPIZ48e69xCn2yRmCgYmDugAVwmJ6o+0u1RI18eO7E7WBTLYLaEVVOhwQmcdhQHweux/WPg==
+
+undici@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-2.1.0.tgz#b03c8befce8498372f0e5525d8ea50845f86a1b4"
+  integrity sha512-4QOaapBV8JNs/mh3AA+72520OnFKNIJfA1c6Xq56NK51uI4zU3KpSQzrcBuJbMWu8ivaCj8hTcyDQefhEO4JdQ==
 
 uniq@^1.0.1:
   version "1.0.1"

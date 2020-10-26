@@ -9,3 +9,4 @@
 - Winston logger
 - Vite / Vue 3 frontend
 - Serve frontend static files in production
+- Backend proxy in development

@@ -1,6 +1,5 @@
 # Roadmap
 
-- Backend proxy in development
 - Mercurius GraphQL server
 - Nexus Schema with dummy query / mutation / subscription
 - Villus GraphQL client
