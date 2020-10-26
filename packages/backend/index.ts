@@ -1,10 +1,13 @@
 import fastify from "fastify";
 import fastifyStatic from "fastify-static";
+import { prisma, Prisma } from "@packages/prisma";
 import mercurius, { MercuriusContext } from "mercurius";
 import { schema } from "@packages/schema";
 import { config } from "@packages/config";
 
-export type Context = MercuriusContext;
+export interface Context extends MercuriusContext {
+  prisma: Prisma;
+}
 
 export const app = fastify();
 
@@ -12,7 +15,7 @@ export const app = fastify();
 app.register(mercurius, {
   schema,
   context: () => {
-    return {};
+    return { prisma };
   },
   subscription: true,
   graphiql: config.mode === "development" && "playground",

@@ -11,6 +11,7 @@
     ]
   },
   "scripts": {
+    "build:prisma": "yarn workspace @packages/prisma run generate",
     "build:nexus": "ts-node -T ./packages/schema/index.ts --nexus-generate",
     "build:frontend": "yarn workspace @packages/frontend run build",
     "build:tsc": "tsc",
@@ -18,11 +19,15 @@
     "clean:dist": "rm -rf ./dist",
     "clean:npm": "rm -rf ./node_modules ./packages/*/node_modules ./*.lock ./*.log",
     "clean": "run-s clean:*",
+    "dev:prisma": "yarn workspace @packages/prisma run generate --watch",
     "dev:frontend": "yarn workspace @packages/frontend run dev",
     "dev:tsc": "ts-node-dev --transpile-only --no-notify --quiet ./main.ts",
     "dev": "run-p dev:*",
     "lint": "eslint **/*.{js,ts,vue} --fix",
-    "start": "NODE_ENV=production node ./dist/main.js"
+    "migrate": "yarn workspace @packages/prisma run migrate",
+    "seed": "yarn workspace @packages/prisma run seed",
+    "start": "NODE_ENV=production node ./dist/main.js",
+    "studio": "yarn workspace @packages/prisma run studio"
   },
   "devDependencies": {
     "@types/module-alias": "^2.0.0",

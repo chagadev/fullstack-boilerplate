@@ -17,3 +17,4 @@
 - Villus GraphQL client
 - Type-safe GraphQL context
 - Subscriptions client forwarder
+- Prisma data model
