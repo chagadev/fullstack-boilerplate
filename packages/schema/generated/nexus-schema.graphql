@@ -2,7 +2,19 @@
 ### Do not make changes to this file directly
 
 type Mutation {
+  createOneUser(data: UserCreateInput!): User!
+  deleteOneUser(where: UserWhereUniqueInput!): User
   ping: String
+  updateOneUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  upsertOneUser(
+    create: UserCreateInput!
+    update: UserUpdateInput!
+    where: UserWhereUniqueInput!
+  ): User!
+}
+
+input NullableStringFieldUpdateOperationsInput {
+  set: String
 }
 
 type Query {
@@ -10,8 +22,39 @@ type Query {
   Display a greeting message
   """
   hello: String
+  user(where: UserWhereUniqueInput!): User
+  users(
+    after: UserWhereUniqueInput
+    before: UserWhereUniqueInput
+    first: Int
+    last: Int
+  ): [User!]!
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
 }
 
 type Subscription {
   ping: String
+}
+
+type User {
+  email: String!
+  id: Int!
+}
+
+input UserCreateInput {
+  email: String!
+  password: String
+}
+
+input UserUpdateInput {
+  email: StringFieldUpdateOperationsInput
+  password: NullableStringFieldUpdateOperationsInput
+}
+
+input UserWhereUniqueInput {
+  email: String
+  id: Int
 }

@@ -1,6 +1,5 @@
 # Roadmap
 
-- Nexus Prisma model and CRUD projections
 - GraphQL code generation
 - JWT authentication
 - Login / Password authentication

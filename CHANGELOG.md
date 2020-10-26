@@ -18,3 +18,4 @@
 - Type-safe GraphQL context
 - Subscriptions client forwarder
 - Prisma data model
+- Nexus Prisma model and CRUD projections
