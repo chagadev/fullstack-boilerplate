@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "fastify": "^3.7.0",
-    "fastify-static": "^3.3.0"
+    "fastify-static": "^3.3.0",
+    "mercurius": "^6.4.0"
   }
 }

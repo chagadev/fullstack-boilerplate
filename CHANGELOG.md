@@ -8,5 +8,6 @@
 - Fastify backend
 - Winston logger
 - Vite / Vue 3 frontend
-- Serve frontend static files in production
-- Backend proxy in development
+- Serve frontend static files (production)
+- Backend proxy (development)
+- Mercurius GraphQL server
