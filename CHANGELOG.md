@@ -13,3 +13,4 @@
 - Mercurius GraphQL server
 - Nexus Schema with hello query
 - Vue-Router
+- Graceful "Not found" handler

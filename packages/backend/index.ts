@@ -16,3 +16,8 @@ app.register(mercurius, {
 if (config.mode === "production") {
   app.register(fastifyStatic, { root: `${config.paths.root}/dist/public` });
 }
+
+// Graceful "Not found" handler
+app.setNotFoundHandler((req, res) => {
+  res.status(404).sendFile("index.html");
+});
