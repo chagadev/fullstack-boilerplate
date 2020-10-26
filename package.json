@@ -11,8 +11,8 @@
     ]
   },
   "scripts": {
-    "build:frontend": "yarn workspace @packages/frontend run build",
     "build:nexus": "ts-node -T ./packages/schema/index.ts --nexus-generate",
+    "build:frontend": "yarn workspace @packages/frontend run build",
     "build:tsc": "tsc",
     "build": "run-s build:*",
     "clean:dist": "rm -rf ./dist",

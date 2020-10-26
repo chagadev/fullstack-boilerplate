@@ -20,7 +20,9 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenRootTypes {
+  Mutation: {};
   Query: {};
+  Subscription: {};
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
@@ -32,9 +34,17 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 }
 
 export interface NexusGenFieldTypes {
+  Mutation: {
+    // field return type
+    ping: string | null; // String
+  };
   Query: {
     // field return type
     hello: string | null; // String
+  };
+  Subscription: {
+    // field return type
+    ping: string | null; // String
   };
 }
 
@@ -44,7 +54,7 @@ export interface NexusGenAbstractResolveReturnTypes {}
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Query";
+export type NexusGenObjectNames = "Mutation" | "Query" | "Subscription";
 
 export type NexusGenInputNames = never;
 

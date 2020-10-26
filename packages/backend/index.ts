@@ -9,6 +9,7 @@ export const app = fastify();
 // Mercurius GraphQL server
 app.register(mercurius, {
   schema,
+  subscription: true,
   graphiql: config.mode === "development" && "playground",
 });
 
