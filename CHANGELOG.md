@@ -15,3 +15,4 @@
 - Vue-Router
 - Graceful "Not found" handler
 - Villus GraphQL client
+- Type-safe GraphQL context

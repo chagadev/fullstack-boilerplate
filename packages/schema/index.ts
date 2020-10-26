@@ -13,5 +13,14 @@ export const schema = makeSchema({
     typegen: resolve(__dirname, "generated/nexus-types.ts"),
   },
   shouldGenerateArtifacts,
+  typegenAutoConfig: {
+    sources: [
+      {
+        source: "@packages/backend",
+        alias: "context",
+      },
+    ],
+    contextType: "context.Context",
+  },
   prettierConfig: resolve(__dirname, "../../.prettierrc.js"),
 });

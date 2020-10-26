@@ -16,8 +16,8 @@ export const PingMutation = extendType({
   definition(t) {
     t.field("ping", {
       type: "String",
-      resolve: async (_root, _args, { pubsub }) => {
-        await pubsub.publish({
+      resolve: (_root, _args, { pubsub }) => {
+        pubsub.publish({
           topic: "ping",
           payload: "pong",
         });
