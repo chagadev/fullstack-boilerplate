@@ -263,7 +263,7 @@
   resolved "https://registry.yarnpkg.com/@types/module-alias/-/module-alias-2.0.0.tgz#882668f8b8cdbda44812c3b592c590909e18849e"
   integrity sha512-e3sW4oEH0qS1QxSfX7PT6xIi5qk/YSMsrB9Lq8EtkhQBZB+bKyfkP+jpLJRySanvBhAQPSv2PEBe81M8Iy/7yg==
 
-"@types/node@*", "@types/node@^14.14.2":
+"@types/node@*", "@types/node@^14.14.3":
   version "14.14.3"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.3.tgz#e1c09064121f894baaad2bd9f12ce4a41bffb274"
   integrity sha512-33/L34xS7HVUx23e0wOT2V1qPF1IrHgQccdJVm9uXGTB9vFBrrzBtkQymT8VskeKOxjz55MSqMv0xuLq+u98WQ==
@@ -392,7 +392,7 @@
     "@vue/compiler-core" "3.0.2"
     "@vue/shared" "3.0.2"
 
-"@vue/compiler-sfc@^3.0.0-rc.1", "@vue/compiler-sfc@^3.0.0-rc.10":
+"@vue/compiler-sfc@^3.0.0-rc.10", "@vue/compiler-sfc@^3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-3.0.2.tgz#22c70fed72c347a4d5fa2db2e80594b3193dce57"
   integrity sha512-viYjT5ehDSLM3v0jQ9hbTs4I5e/7lSlYsDOp7TQ1qcwHRvzoTQMTkFpY/Iae+LFKM124Ld17tBfXgfrZl9dt+g==
@@ -3773,7 +3773,14 @@ vary@^1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vite@^1.0.0-rc.1:
+villus@^1.0.0-rc.0:
+  version "1.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/villus/-/villus-1.0.0-rc.0.tgz#68b61e4ec9c0e86597dd01b602e3c4767c98d0c9"
+  integrity sha512-NpBy9C6hUY964oCUzcs1l592534S38tKM3A5RhKtEJZCokzgCAp/dCznlYm10gRMkwbPFnrlTdMg40fPhSvS/w==
+  dependencies:
+    vue-demi "^0.4.0"
+
+vite@^1.0.0-rc.6:
   version "1.0.0-rc.6"
   resolved "https://registry.yarnpkg.com/vite/-/vite-1.0.0-rc.6.tgz#3d832c151bd008950ef5c82e98e17257cff34630"
   integrity sha512-voliGpQmoYvqjqurNIXNpd+Mi9l8W7XiGjehlnC1Bl3wbIK1ysHUmki84Z0zkvBXMorIdiIVMOcKsUVPQMVEgQ==
@@ -3828,6 +3835,11 @@ vite@^1.0.0-rc.1:
     slash "^3.0.0"
     vue "^3.0.0-rc.10"
     ws "^7.3.1"
+
+vue-demi@^0.4.0:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.4.1.tgz#2261b8afe57b99ef4a6ee82a7bd2e6fe471bdcde"
+  integrity sha512-3xxnqY426eMKhmYdNygYwOvuaJlrgP+aSZLiD5GdCF7cBsMNmUZM7g3RL0NqIuY19WB5CCzuFbi/xW1Nd053xw==
 
 vue-eslint-parser@^7.1.1:
   version "7.1.1"

@@ -1,25 +1,19 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <button @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+  <h1 v-if="data">{{ data.hello }}</h1>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useQuery } from "villus";
 
 export default defineComponent({
   name: "HelloWorld",
-  props: {
-    msg: {
-      type: String,
-      default: "",
-    },
-  },
-  data() {
+  setup() {
+    const { data } = useQuery({
+      query: `{ hello }`,
+    });
     return {
-      count: 0,
+      data,
     };
   },
 });

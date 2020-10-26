@@ -14,3 +14,4 @@
 - Nexus Schema with hello query
 - Vue-Router
 - Graceful "Not found" handler
+- Villus GraphQL client

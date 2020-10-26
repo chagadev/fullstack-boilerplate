@@ -1,6 +1,5 @@
 # Roadmap
 
-- Villus GraphQL client
 - Backend WebSocket proxy
 - Prisma data model
 - Nexus Prisma model and CRUD projection
