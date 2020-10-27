@@ -4,4 +4,3 @@
 - Seed admin user
 - Login / Password authentication
 - External oauth2 authentication
-- TailwindCSS
