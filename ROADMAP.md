@@ -13,3 +13,4 @@ These are features we would like to implement in no particular order:
 - User email verification
 - Internationalization
 - Background tasks in a separate thread
+- SSL support
