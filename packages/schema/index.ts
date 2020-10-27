@@ -1,5 +1,6 @@
 import { makeSchema } from "@nexus/schema";
 import { nexusPrisma } from "nexus-plugin-prisma";
+import { nexusShield, allow } from "nexus-shield";
 import { resolve } from "path";
 import { config } from "@packages/config";
 import * as types from "./types";
@@ -16,6 +17,7 @@ export const schema = makeSchema({
       },
       shouldGenerateArtifacts,
     }),
+    nexusShield({ defaultRule: allow }),
   ],
   outputs: {
     schema: resolve(__dirname, "generated/nexus-schema.graphql"),

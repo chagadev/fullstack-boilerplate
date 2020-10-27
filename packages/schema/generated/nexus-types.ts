@@ -4,6 +4,7 @@
  */
 
 import * as context from "@packages/backend/context";
+import { FieldShieldResolver, ObjectTypeShieldResolver } from "nexus-shield";
 
 declare global {
   interface NexusGenCustomOutputProperties<TypeName extends string> {
@@ -103,11 +104,7 @@ export interface NexusGenAbstractResolveReturnTypes {}
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames =
-  | "Mutation"
-  | "Query"
-  | "Subscription"
-  | "User";
+export type NexusGenObjectNames = "Mutation" | "Query" | "Subscription" | "User";
 
 export type NexusGenInputNames = "UserWhereUniqueInput";
 
@@ -133,28 +130,30 @@ export interface NexusGenTypes {
   interfaceNames: NexusGenInterfaceNames;
   scalarNames: NexusGenScalarNames;
   unionNames: NexusGenUnionNames;
-  allInputTypes:
-    | NexusGenTypes["inputNames"]
-    | NexusGenTypes["enumNames"]
-    | NexusGenTypes["scalarNames"];
+  allInputTypes: NexusGenTypes["inputNames"] | NexusGenTypes["enumNames"] | NexusGenTypes["scalarNames"];
   allOutputTypes:
     | NexusGenTypes["objectNames"]
     | NexusGenTypes["enumNames"]
     | NexusGenTypes["unionNames"]
     | NexusGenTypes["interfaceNames"]
     | NexusGenTypes["scalarNames"];
-  allNamedTypes:
-    | NexusGenTypes["allInputTypes"]
-    | NexusGenTypes["allOutputTypes"];
+  allNamedTypes: NexusGenTypes["allInputTypes"] | NexusGenTypes["allOutputTypes"];
   abstractTypes: NexusGenTypes["interfaceNames"] | NexusGenTypes["unionNames"];
   abstractResolveReturn: NexusGenAbstractResolveReturnTypes;
 }
 
 declare global {
-  interface NexusGenPluginTypeConfig<TypeName extends string> {}
-  interface NexusGenPluginFieldConfig<
-    TypeName extends string,
-    FieldName extends string
-  > {}
+  interface NexusGenPluginTypeConfig<TypeName extends string> {
+    /**
+     * Default authorization rule to execute on all fields of this object
+     */
+    shield?: ObjectTypeShieldResolver<TypeName>;
+  }
+  interface NexusGenPluginFieldConfig<TypeName extends string, FieldName extends string> {
+    /**
+     * Authorization rule to execute for this field
+     */
+    shield?: FieldShieldResolver<TypeName, FieldName>;
+  }
   interface NexusGenPluginSchemaConfig {}
 }

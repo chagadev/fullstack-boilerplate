@@ -32,6 +32,10 @@
     "start": "NODE_ENV=production node ./dist/main.js",
     "studio": "yarn workspace @packages/prisma run studio"
   },
+  "dependencies": {
+    "graphql": "^15.3.0",
+    "module-alias": "^2.2.2"
+  },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.19.0",
     "@graphql-codegen/typescript": "^1.17.11",
@@ -48,9 +52,5 @@
     "set-versions": "^1.0.3",
     "ts-node-dev": "^1.0.0",
     "typescript": "^4.0.3"
-  },
-  "dependencies": {
-    "graphql": "^15.3.0",
-    "module-alias": "^2.2.2"
   }
 }

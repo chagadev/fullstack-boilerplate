@@ -22,3 +22,4 @@
 - GraphQL code generation
 - Set versions hook
 - User in GraphQL context from JWT in authorization header
+- Nexus Shield field-level authorization
