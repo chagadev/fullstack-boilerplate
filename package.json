@@ -27,6 +27,7 @@
     "dev": "run-p dev:*",
     "lint": "eslint **/*.{js,ts,vue} --fix",
     "migrate": "yarn workspace @packages/prisma run migrate",
+    "postversion": "set-versions -w",
     "seed": "yarn workspace @packages/prisma run seed",
     "start": "NODE_ENV=production node ./dist/main.js",
     "studio": "yarn workspace @packages/prisma run studio"
@@ -44,6 +45,7 @@
     "eslint-plugin-vue": "^7.1.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
+    "set-versions": "^1.0.3",
     "ts-node-dev": "^1.0.0",
     "typescript": "^4.0.3"
   },

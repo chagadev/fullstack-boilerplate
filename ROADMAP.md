@@ -1,6 +1,5 @@
 # Roadmap
 
-- Set versions hook
 - JWT authentication
 - Nexus Shield field-level authorization
 - User roles (admin / editor)

@@ -20,3 +20,4 @@
 - Prisma data model
 - Nexus Prisma model and CRUD projections
 - GraphQL code generation
+- Set versions hook
