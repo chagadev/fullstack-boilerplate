@@ -4,8 +4,7 @@ import { resolve } from "path";
 import { config } from "@packages/config";
 import * as types from "./types";
 
-const shouldGenerateArtifacts =
-  process.argv.includes("--nexus-generate") || config.mode === "development";
+const shouldGenerateArtifacts = process.argv.includes("--nexus-generate") || config.mode === "development";
 
 export const schema = makeSchema({
   types,

@@ -11,9 +11,7 @@ export interface ExtraContext {
 
 export interface Context extends MercuriusContext, ExtraContext {}
 
-export const getContextFromRequest = (
-  request: FastifyRequest,
-): ExtraContext => {
+export const getContextFromRequest = (request: FastifyRequest): ExtraContext => {
   const user = getUserFromToken(request.headers.authorization);
   return { prisma, user };
 };

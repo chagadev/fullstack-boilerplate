@@ -14,8 +14,7 @@ export default defineComponent({
   setup() {
     // Villus GraphQL client
     const subscriptionClient = new ws.SubscriptionClient(wsEndpoint, {});
-    const subscriptionForwarder = (operation) =>
-      subscriptionClient.request(operation);
+    const subscriptionForwarder = (operation) => subscriptionClient.request(operation);
     useClient({
       url: "/graphql",
       use: [handleSubscriptions(subscriptionForwarder), ...defaultPlugins()],
