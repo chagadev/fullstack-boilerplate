@@ -25,3 +25,4 @@
 - Nexus Shield field-level authorization
 - TailwindCSS
 - Seed admin user
+- VSCode development debug launcher
