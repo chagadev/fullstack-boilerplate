@@ -26,3 +26,4 @@
 - TailwindCSS
 - Seed admin user
 - VSCode development debug launcher
+- Schema Workflow documentation
