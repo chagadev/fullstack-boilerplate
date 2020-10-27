@@ -1,0 +1,5 @@
+schema: ./packages/schema/generated/nexus-schema.graphql
+generates:
+  ./packages/schema/generated/types.ts:
+    plugins:
+      - typescript

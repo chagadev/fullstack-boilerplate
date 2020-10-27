@@ -19,3 +19,4 @@
 - Subscriptions client forwarder
 - Prisma data model
 - Nexus Prisma model and CRUD projections
+- GraphQL code generation

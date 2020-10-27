@@ -17,26 +17,6 @@ declare global {
 }
 
 export interface NexusGenInputs {
-  NullableStringFieldUpdateOperationsInput: {
-    // input type
-    set?: string | null; // String
-  };
-  StringFieldUpdateOperationsInput: {
-    // input type
-    set?: string | null; // String
-  };
-  UserCreateInput: {
-    // input type
-    email: string; // String!
-    password?: string | null; // String
-  };
-  UserUpdateInput: {
-    // input type
-    email?: NexusGenInputs["StringFieldUpdateOperationsInput"] | null; // StringFieldUpdateOperationsInput
-    password?:
-      | NexusGenInputs["NullableStringFieldUpdateOperationsInput"]
-      | null; // NullableStringFieldUpdateOperationsInput
-  };
   UserWhereUniqueInput: {
     // input type
     email?: string | null; // String
@@ -66,10 +46,6 @@ export interface NexusGenRootTypes {
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
-  NullableStringFieldUpdateOperationsInput: NexusGenInputs["NullableStringFieldUpdateOperationsInput"];
-  StringFieldUpdateOperationsInput: NexusGenInputs["StringFieldUpdateOperationsInput"];
-  UserCreateInput: NexusGenInputs["UserCreateInput"];
-  UserUpdateInput: NexusGenInputs["UserUpdateInput"];
   UserWhereUniqueInput: NexusGenInputs["UserWhereUniqueInput"];
   String: NexusGenScalars["String"];
   Int: NexusGenScalars["Int"];
@@ -81,11 +57,8 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 export interface NexusGenFieldTypes {
   Mutation: {
     // field return type
-    createOneUser: NexusGenRootTypes["User"]; // User!
     deleteOneUser: NexusGenRootTypes["User"] | null; // User
     ping: string | null; // String
-    updateOneUser: NexusGenRootTypes["User"] | null; // User
-    upsertOneUser: NexusGenRootTypes["User"]; // User!
   };
   Query: {
     // field return type
@@ -106,23 +79,8 @@ export interface NexusGenFieldTypes {
 
 export interface NexusGenArgTypes {
   Mutation: {
-    createOneUser: {
-      // args
-      data: NexusGenInputs["UserCreateInput"]; // UserCreateInput!
-    };
     deleteOneUser: {
       // args
-      where: NexusGenInputs["UserWhereUniqueInput"]; // UserWhereUniqueInput!
-    };
-    updateOneUser: {
-      // args
-      data: NexusGenInputs["UserUpdateInput"]; // UserUpdateInput!
-      where: NexusGenInputs["UserWhereUniqueInput"]; // UserWhereUniqueInput!
-    };
-    upsertOneUser: {
-      // args
-      create: NexusGenInputs["UserCreateInput"]; // UserCreateInput!
-      update: NexusGenInputs["UserUpdateInput"]; // UserUpdateInput!
       where: NexusGenInputs["UserWhereUniqueInput"]; // UserWhereUniqueInput!
     };
   };
@@ -151,12 +109,7 @@ export type NexusGenObjectNames =
   | "Subscription"
   | "User";
 
-export type NexusGenInputNames =
-  | "NullableStringFieldUpdateOperationsInput"
-  | "StringFieldUpdateOperationsInput"
-  | "UserCreateInput"
-  | "UserUpdateInput"
-  | "UserWhereUniqueInput";
+export type NexusGenInputNames = "UserWhereUniqueInput";
 
 export type NexusGenEnumNames = never;
 

@@ -13,6 +13,7 @@
   "scripts": {
     "build:prisma": "yarn workspace @packages/prisma run generate",
     "build:nexus": "ts-node -T ./packages/schema/index.ts --nexus-generate",
+    "build:graphql": "graphql-codegen --errors-only",
     "build:frontend": "yarn workspace @packages/frontend run build",
     "build:tsc": "tsc",
     "build": "run-s build:*",
@@ -20,6 +21,7 @@
     "clean:npm": "rm -rf ./node_modules ./packages/*/node_modules ./*.lock ./*.log",
     "clean": "run-s clean:*",
     "dev:prisma": "yarn workspace @packages/prisma run generate --watch",
+    "dev:graphql": "graphql-codegen --watch --errors-only",
     "dev:frontend": "yarn workspace @packages/frontend run dev",
     "dev:tsc": "ts-node-dev --transpile-only --no-notify --quiet ./main.ts",
     "dev": "run-p dev:*",
@@ -30,6 +32,8 @@
     "studio": "yarn workspace @packages/prisma run studio"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.19.0",
+    "@graphql-codegen/typescript": "^1.17.11",
     "@types/module-alias": "^2.0.0",
     "@types/node": "^14.14.3",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
