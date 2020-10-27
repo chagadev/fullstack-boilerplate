@@ -11,4 +11,5 @@ These are features we would like to implement in no particular order:
 - External OAuth2 authentication
 - Docker image / compose project
 - User email verification
+- Internationalization
 - Background tasks in a separate thread
