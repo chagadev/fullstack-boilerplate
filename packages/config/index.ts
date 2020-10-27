@@ -1,5 +1,6 @@
 import env from "env-var";
 import { config as dotenvConfig } from "dotenv";
+import { hashSync } from "bcryptjs";
 import { resolve } from "path";
 
 export interface Config {
@@ -16,6 +17,12 @@ export interface Config {
   mode: "development" | "production";
   paths: {
     root: string;
+  };
+  seed: {
+    admin: {
+      email: string;
+      password: string;
+    };
   };
 }
 
@@ -38,5 +45,11 @@ export const config = {
   mode,
   paths: {
     root: rootPath,
+  },
+  seed: {
+    admin: {
+      email: env.get("SEED_ADMIN_EMAIL").default("admin@example.com").asString(),
+      password: hashSync(env.get("SEED_ADMIN_PASSWORD").default("changeme").asString()),
+    },
   },
 };
