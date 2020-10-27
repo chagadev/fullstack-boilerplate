@@ -2,11 +2,13 @@
 
 These are features we would like to implement in no particular order:
 
-- User roles authorization (admin / editor)
+- User roles enum (admin / editor)
+- Role-based authorization (hasRole)
 - AuthPayload object type
 - Login / Password authentication
 - Passwordless authentication
-- External oauth2 authentication
-- Docker image
+- Redirect after authentication from query parameter
+- External OAuth2 authentication
+- Docker image / compose project
 - User email verification
-- Background tasks
+- Background tasks in a separate thread
