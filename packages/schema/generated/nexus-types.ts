@@ -3,7 +3,7 @@
  * Do not make changes to this file directly
  */
 
-import * as context from "@packages/backend";
+import * as context from "@packages/backend/context";
 
 declare global {
   interface NexusGenCustomOutputProperties<TypeName extends string> {

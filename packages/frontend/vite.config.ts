@@ -1,7 +1,7 @@
 import { resolve } from "path";
 import { config } from "../config";
 
-const target = `http://${config.server.host}:${config.server.port}`;
+const backend = `${config.backend.host}:${config.backend.port}`;
 
 module.exports = {
   outDir: "../../dist/public",
@@ -9,10 +9,10 @@ module.exports = {
     "/@/": resolve(__dirname, "./src"),
   },
   define: {
-    wsEndpoint: `ws://${config.server.host}:${config.server.port}/graphql`,
+    wsEndpoint: `ws://${backend}/graphql`,
   },
   proxy: {
-    "/graphql": { target },
-    "/playground": { target },
+    "/graphql": { target: `http://${backend}` },
+    "/playground": { target: `http://${backend}` },
   },
 };

@@ -1,0 +1,14 @@
+{
+  "name": "@packages/auth",
+  "version": "0.2.0",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.5.0"
+  }
+}

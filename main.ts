@@ -3,8 +3,8 @@ import { config } from "@packages/config";
 import { app } from "@packages/backend";
 import { logger } from "@packages/logger";
 
-app.listen(config.server.port, () => {
+app.listen({ port: config.backend.port, host: config.backend.host }, () => {
   logger.info(
-    `🚀 http://${config.server.host}:${config.server.port} (${config.mode})`,
+    `🚀 http://${config.backend.host}:${config.backend.port} (${config.mode})`,
   );
 });

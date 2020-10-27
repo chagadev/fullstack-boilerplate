@@ -3,16 +3,19 @@ import { config as dotenvConfig } from "dotenv";
 import { resolve } from "path";
 
 export interface Config {
+  auth: {
+    tokenSecret: string;
+  };
+  backend: {
+    host: string;
+    port: number;
+  };
   logger: {
     level: string;
   };
   mode: "development" | "production";
   paths: {
     root: string;
-  };
-  server: {
-    host: string;
-    port: number;
   };
 }
 
@@ -22,15 +25,18 @@ dotenvConfig({ path: `${rootPath}/.env` });
 dotenvConfig({ path: `${rootPath}/packages/prisma/.env` });
 
 export const config = {
-  mode,
+  auth: {
+    tokenSecret: env.get("TOKEN_SECRET").default("supertokensecret").asString(),
+  },
+  backend: {
+    host: env.get("BACKEND_HOST").default("localhost").asString(),
+    port: env.get("BACKEND_PORT").default("4000").asPortNumber(),
+  },
   logger: {
     level: env.get("LOGGER_LEVEL").default("info").asString(),
   },
+  mode,
   paths: {
     root: rootPath,
-  },
-  server: {
-    host: env.get("SERVER_HOST").default("localhost").asString(),
-    port: env.get("SERVER_PORT").default("4000").asPortNumber(),
   },
 };

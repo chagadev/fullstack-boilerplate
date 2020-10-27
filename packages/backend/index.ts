@@ -1,23 +1,20 @@
 import fastify from "fastify";
 import fastifyStatic from "fastify-static";
-import { prisma, Prisma } from "@packages/prisma";
-import mercurius, { MercuriusContext } from "mercurius";
+import mercurius from "mercurius";
 import { schema } from "@packages/schema";
 import { config } from "@packages/config";
+import { getContextFromRequest } from "./context";
 
-export interface Context extends MercuriusContext {
-  prisma: Prisma;
-}
-
+// Create Fastify application
 export const app = fastify();
 
 // Mercurius GraphQL server
 app.register(mercurius, {
   schema,
-  context: () => {
-    return { prisma };
+  context: (request) => getContextFromRequest(request),
+  subscription: {
+    context: (_connection, request) => getContextFromRequest(request),
   },
-  subscription: true,
   graphiql: config.mode === "development" && "playground",
 });
 
@@ -27,6 +24,6 @@ if (config.mode === "production") {
 }
 
 // Graceful "Not found" handler
-app.setNotFoundHandler((req, res) => {
-  res.status(404).sendFile("index.html");
+app.setNotFoundHandler((_request, reply) => {
+  reply.status(404).sendFile("index.html");
 });

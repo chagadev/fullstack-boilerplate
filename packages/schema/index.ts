@@ -26,7 +26,7 @@ export const schema = makeSchema({
   typegenAutoConfig: {
     sources: [
       {
-        source: "@packages/backend",
+        source: "@packages/backend/context",
         alias: "context",
       },
     ],
