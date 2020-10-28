@@ -10,7 +10,7 @@
   "dependencies": {
     "subscriptions-transport-ws": "^0.9.18",
     "tailwindcss": "^1.9.6",
-    "villus": "^1.0.0-rc.2",
+    "villus": "^1.0.0-rc.3",
     "vue": "^3.0.0-rc.1",
     "vue-router": "^4.0.0-rc.1"
   },

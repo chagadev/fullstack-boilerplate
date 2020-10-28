@@ -78,6 +78,29 @@ export interface NexusGenFieldTypes {
   };
 }
 
+export interface NexusGenFieldTypeNames {
+  Mutation: {
+    // field return type name
+    deleteOneUser: "User";
+    ping: "String";
+  };
+  Query: {
+    // field return type name
+    hello: "String";
+    user: "User";
+    users: "User";
+  };
+  Subscription: {
+    // field return type name
+    ping: "String";
+  };
+  User: {
+    // field return type name
+    email: "String";
+    id: "Int";
+  };
+}
+
 export interface NexusGenArgTypes {
   Mutation: {
     deleteOneUser: {
@@ -122,6 +145,7 @@ export interface NexusGenTypes {
   rootTypes: NexusGenRootTypes;
   argTypes: NexusGenArgTypes;
   fieldTypes: NexusGenFieldTypes;
+  fieldTypeNames: NexusGenFieldTypeNames;
   allTypes: NexusGenAllTypes;
   inheritedFields: NexusGenInheritedFields;
   objectNames: NexusGenObjectNames;
