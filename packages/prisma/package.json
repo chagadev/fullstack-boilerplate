@@ -10,9 +10,9 @@
     "seed": "ts-node -T ./seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "2.9.0"
+    "@prisma/client": "2.10.0"
   },
   "devDependencies": {
-    "@prisma/cli": "2.9.0"
+    "@prisma/cli": "2.10.0"
   }
 }
