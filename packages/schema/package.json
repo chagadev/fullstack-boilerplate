@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "@nexus/schema": "^0.17.0",
-    "@prisma/client": "2.10.0",
+    "@prisma/client": "2.10.1",
     "nexus-plugin-prisma": "^0.23.1",
     "nexus-shield": "^1.1.1"
   }
