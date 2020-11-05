@@ -27,3 +27,4 @@
 - Seed admin user
 - VSCode development debug launcher
 - Schema Workflow documentation
+- AuthPayload object type

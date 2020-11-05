@@ -36,6 +36,10 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenRootTypes {
+  AuthPayload: {
+    // root type
+    token?: string | null; // String
+  };
   Mutation: {};
   Query: {};
   Subscription: {};
@@ -56,9 +60,14 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 }
 
 export interface NexusGenFieldTypes {
+  AuthPayload: {
+    // field return type
+    token: string | null; // String
+  };
   Mutation: {
     // field return type
     deleteOneUser: NexusGenRootTypes["User"] | null; // User
+    login: NexusGenRootTypes["AuthPayload"] | null; // AuthPayload
     ping: string | null; // String
   };
   Query: {
@@ -79,9 +88,14 @@ export interface NexusGenFieldTypes {
 }
 
 export interface NexusGenFieldTypeNames {
+  AuthPayload: {
+    // field return type name
+    token: "String";
+  };
   Mutation: {
     // field return type name
     deleteOneUser: "User";
+    login: "AuthPayload";
     ping: "String";
   };
   Query: {
@@ -107,6 +121,11 @@ export interface NexusGenArgTypes {
       // args
       where: NexusGenInputs["UserWhereUniqueInput"]; // UserWhereUniqueInput!
     };
+    login: {
+      // args
+      email: string; // String!
+      password: string; // String!
+    };
   };
   Query: {
     user: {
@@ -127,7 +146,7 @@ export interface NexusGenAbstractResolveReturnTypes {}
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Mutation" | "Query" | "Subscription" | "User";
+export type NexusGenObjectNames = "AuthPayload" | "Mutation" | "Query" | "Subscription" | "User";
 
 export type NexusGenInputNames = "UserWhereUniqueInput";
 
