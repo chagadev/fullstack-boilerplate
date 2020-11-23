@@ -1,5 +1,5 @@
 import { extendType, objectType, stringArg } from "@nexus/schema";
-import { getTokenFromUser, verifyPassword } from "@packages/auth";
+import { encryptPassword, getTokenFromUser, verifyPassword } from "@packages/auth";
 
 export const AuthPayload = objectType({
   name: "AuthPayload",
@@ -24,6 +24,29 @@ export const AuthMutation = extendType({
             token: getTokenFromUser(user),
           };
         }
+        return null;
+      },
+    });
+
+    t.field("signup", {
+      type: AuthPayload,
+      args: {
+        email: stringArg({ required: true }),
+        password: stringArg({ required: true }),
+      },
+      resolve: async (_root, { email, password }, { prisma }) => {
+        const userExists = await prisma.user.count({ where: { email } });
+        if (userExists) {
+          return null;
+        }
+
+        const user = await prisma.user.create({ data: { email, password: encryptPassword(password) } });
+        if (user) {
+          return {
+            token: getTokenFromUser(user),
+          };
+        }
+
         return null;
       },
     });

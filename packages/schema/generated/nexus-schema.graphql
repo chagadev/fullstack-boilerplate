@@ -9,6 +9,7 @@ type Mutation {
   deleteOneUser(where: UserWhereUniqueInput!): User
   login(email: String!, password: String!): AuthPayload
   ping: String
+  signup(email: String!, password: String!): AuthPayload
 }
 
 type Query {

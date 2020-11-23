@@ -19,6 +19,7 @@ export type Mutation = {
   deleteOneUser?: Maybe<User>;
   login?: Maybe<AuthPayload>;
   ping?: Maybe<Scalars['String']>;
+  signup?: Maybe<AuthPayload>;
 };
 
 
@@ -28,6 +29,12 @@ export type MutationDeleteOneUserArgs = {
 
 
 export type MutationLoginArgs = {
+  email: Scalars['String'];
+  password: Scalars['String'];
+};
+
+
+export type MutationSignupArgs = {
   email: Scalars['String'];
   password: Scalars['String'];
 };

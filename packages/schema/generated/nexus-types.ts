@@ -69,6 +69,7 @@ export interface NexusGenFieldTypes {
     deleteOneUser: NexusGenRootTypes["User"] | null; // User
     login: NexusGenRootTypes["AuthPayload"] | null; // AuthPayload
     ping: string | null; // String
+    signup: NexusGenRootTypes["AuthPayload"] | null; // AuthPayload
   };
   Query: {
     // field return type
@@ -97,6 +98,7 @@ export interface NexusGenFieldTypeNames {
     deleteOneUser: "User";
     login: "AuthPayload";
     ping: "String";
+    signup: "AuthPayload";
   };
   Query: {
     // field return type name
@@ -122,6 +124,11 @@ export interface NexusGenArgTypes {
       where: NexusGenInputs["UserWhereUniqueInput"]; // UserWhereUniqueInput!
     };
     login: {
+      // args
+      email: string; // String!
+      password: string; // String!
+    };
+    signup: {
       // args
       email: string; // String!
       password: string; // String!
