@@ -8,8 +8,4 @@ module.exports = {
     enabled: process.argv.includes("build"),
     content: ["./index.html", "./src/**/*.vue"],
   },
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
 };

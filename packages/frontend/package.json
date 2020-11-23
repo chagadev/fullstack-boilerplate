@@ -9,13 +9,15 @@
   },
   "dependencies": {
     "subscriptions-transport-ws": "^0.9.18",
-    "tailwindcss": "^1.9.6",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "villus": "^1.0.0-rc.4",
     "vue": "^3.0.0-rc.1",
     "vue-router": "^4.0.0-rc.1"
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.2",
+    "autoprefixer": "^9",
+    "postcss": "^7",
     "vite": "^1.0.0-rc.9"
   }
 }
