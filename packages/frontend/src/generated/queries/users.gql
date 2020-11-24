@@ -1,0 +1,6 @@
+query users($after: UserWhereUniqueInput, $before: UserWhereUniqueInput, $first: Int, $last: Int){
+    users(after: $after, before: $before, first: $first, last: $last){
+        email
+        id
+    }
+}
