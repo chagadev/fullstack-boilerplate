@@ -19,6 +19,7 @@
           <div>
             <label for="email-address" class="sr-only">Email address</label>
             <input
+              v-model="email"
               id="email-address"
               name="email"
               type="email"
@@ -30,6 +31,7 @@
           <div>
             <label for="password" class="sr-only">Password</label>
             <input
+              v-model="password"
               id="password"
               name="password"
               type="password"
@@ -86,11 +88,20 @@
 
 <script>
 import { useMutation } from "villus";
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+import { LoginDocument } from "../../generated/graphql-operations";
 
 export default defineComponent({
   setup() {
-    const { data, execute } = useMutation();
+    const { execute } = useMutation(LoginDocument);
+    const email = ref();
+    const password = ref();
+
+    function login() {
+      const { data, error } = execute({ email: email.value, password: password.value });
+    }
+
+    return { email, password };
   },
 });
 </script>
