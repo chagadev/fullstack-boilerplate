@@ -13,7 +13,7 @@
           <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> start your 14-day free trial </a>
         </p>
       </div>
-      <form class="mt-8 space-y-6" action="#" method="POST">
+      <form class="mt-8 space-y-6" action="#" method="POST" @submit.prevent="login()">
         <input type="hidden" name="remember" value="true" />
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
@@ -101,7 +101,7 @@ export default defineComponent({
       const { data, error } = execute({ email: email.value, password: password.value });
     }
 
-    return { email, password };
+    return { login, email, password };
   },
 });
 </script>
