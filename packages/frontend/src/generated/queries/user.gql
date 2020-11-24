@@ -1,0 +1,6 @@
+query user($where: UserWhereUniqueInput!){
+    user(where: $where){
+        email
+        id
+    }
+}

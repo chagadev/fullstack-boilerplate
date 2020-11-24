@@ -11,6 +11,7 @@
     ]
   },
   "scripts": {
+    "build:gql": "gqlg --schemaFilePath ./packages/schema/generated/nexus-schema.graphql --destDirPath ./packages/frontend/src/generated",
     "build:prisma": "yarn workspace @packages/prisma run generate",
     "build:nexus": "ts-node -T ./packages/schema/index.ts --nexus-generate",
     "build:graphql": "graphql-codegen --errors-only",
@@ -33,20 +34,24 @@
     "studio": "yarn workspace @packages/prisma run studio"
   },
   "dependencies": {
+    "@graphql-codegen/typed-document-node": "^1.17.10",
+    "@graphql-codegen/typescript-operations": "^1.17.10",
     "graphql": "^15.4.0",
     "module-alias": "^2.2.2"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.19.2",
     "@graphql-codegen/typescript": "^1.17.11",
+    "@graphql-typed-document-node/core": "^3.1.0",
     "@types/module-alias": "^2.0.0",
     "@types/node": "^14.14.9",
-    "@typescript-eslint/eslint-plugin": "^4.8.1",
-    "@typescript-eslint/parser": "^4.8.1",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^7.1.0",
+    "gqlg": "^1.0.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.0",
     "set-versions": "^1.0.3",

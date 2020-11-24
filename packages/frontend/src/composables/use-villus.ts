@@ -1,7 +1,12 @@
 import { useClient, handleSubscriptions, defaultPlugins } from "villus";
 import ws from "subscriptions-transport-ws";
+import Cookies from "js-cookie";
 
 declare const wsEndpoint: string;
+
+function authPlugin({ opContext }) {
+  opContext.headers.Authorization = Cookies.get("JWT");
+}
 
 export function useVillus(): void {
   // Villus GraphQL client
@@ -9,6 +14,6 @@ export function useVillus(): void {
   const subscriptionForwarder = (operation) => subscriptionClient.request(operation);
   useClient({
     url: "/graphql",
-    use: [handleSubscriptions(subscriptionForwarder), ...defaultPlugins()],
+    use: [authPlugin, handleSubscriptions(subscriptionForwarder), ...defaultPlugins()],
   });
 }

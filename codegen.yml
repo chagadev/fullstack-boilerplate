@@ -1,5 +1,13 @@
 schema: ./packages/schema/generated/nexus-schema.graphql
+require:
+  - ts-node/register/transpile-only
 generates:
   ./packages/schema/generated/types.ts:
     plugins:
       - typescript
+  ./packages/frontend/src/generated/graphql-operations.ts:
+    documents: "./packages/frontend/src/generated/**/*.gql"
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node
