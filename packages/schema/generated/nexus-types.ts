@@ -79,7 +79,7 @@ export interface NexusGenFieldTypes {
   };
   Subscription: {
     // field return type
-    ping: string | null; // String
+    pingSubscription: string | null; // String
   };
   User: {
     // field return type
@@ -108,7 +108,7 @@ export interface NexusGenFieldTypeNames {
   };
   Subscription: {
     // field return type name
-    ping: "String";
+    pingSubscription: "String";
   };
   User: {
     // field return type name
