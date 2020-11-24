@@ -90,6 +90,7 @@
 import { useMutation } from "villus";
 import { defineComponent, ref } from "vue";
 import { LoginDocument } from "../../generated/graphql-operations";
+import Cookies from "js-cookie";
 
 export default defineComponent({
   setup() {
@@ -97,8 +98,14 @@ export default defineComponent({
     const email = ref();
     const password = ref();
 
-    function login() {
-      const { data, error } = execute({ email: email.value, password: password.value });
+    async function login() {
+      const { data, error } = await execute({ email: email.value, password: password.value });
+      if (data.login.token) {
+        Cookies.set("JWT", data.login.token);
+        this.$router.push("/");
+      } else {
+        this.$router.push("/login");
+      }
     }
 
     return { login, email, password };

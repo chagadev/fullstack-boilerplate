@@ -8,6 +8,7 @@
     "dev": "vite"
   },
   "dependencies": {
+    "js-cookie": "^2.2.1",
     "subscriptions-transport-ws": "^0.9.18",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "villus": "^1.0.0-rc.4",
