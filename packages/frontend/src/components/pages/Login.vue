@@ -104,6 +104,7 @@ export default defineComponent({
         Cookies.set("JWT", data.login.token);
         this.$router.push("/");
       } else {
+        // TODO: Display Error
         this.$router.push("/login");
       }
     }
