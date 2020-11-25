@@ -30,5 +30,5 @@ export const PingMutation = extendType({
 export const PingSubscription = subscriptionField("ping", {
   type: "String",
   subscribe: async (_root, _args, { pubsub }) => await pubsub.subscribe("ping"),
-  resolve: (payload) => payload,
+  resolve: (payload) => payload as string,
 });
