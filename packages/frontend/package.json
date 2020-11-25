@@ -16,8 +16,8 @@
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.2",
-    "autoprefixer": "^10",
-    "postcss": "^8",
+    "autoprefixer": "9",
+    "postcss": "7",
     "vite": "^1.0.0-rc.13"
   }
 }
