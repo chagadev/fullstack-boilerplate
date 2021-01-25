@@ -1,8 +1,4 @@
 module.exports = {
-  root: true,
-  env: {
-    node: true,
-  },
   parser: "vue-eslint-parser",
   parserOptions: {
     parser: "@typescript-eslint/parser",
@@ -11,12 +7,17 @@ module.exports = {
   },
   extends: [
     "plugin:@typescript-eslint/recommended",
-    "eslint:recommended",
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
     "plugin:vue/vue3-recommended",
     "prettier/vue",
   ],
-  plugins: ["prettier", "@typescript-eslint"],
-  rules: {},
+  rules: {
+    "no-unused-vars": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+  },
 };
