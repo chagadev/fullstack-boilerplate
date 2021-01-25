@@ -1,9 +1,0 @@
-{
-  "name": "@packages/logger",
-  "version": "0.2.1",
-  "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "winston": "^3.3.3"
-  }
-}

@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ESNext",
     "module": "CommonJS",
     "lib": [
       "DOM",
-      "ES2020"
+      "ESNext"
     ],
     "esModuleInterop": true,
     "sourceMap": true,
@@ -13,9 +13,20 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@packages/*": [
-        "packages/*"
+      "@client/*": [
+        "client/*"
+      ],
+      "@server/*": [
+        "server/*"
       ]
-    }
-  }
+    },
+    "types": [
+      "@types/node"
+    ]
+  },
+  "exclude": [
+    "client",
+    "dist",
+    "node_modules"
+  ]
 }

@@ -1,0 +1,11 @@
+{
+  "name": "@server/schema",
+  "version": "0.3.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "nexus": "^1.0.0",
+    "nexus-plugin-prisma": "^0.28.0",
+    "nexus-shield": "^2.0.0"
+  }
+}
