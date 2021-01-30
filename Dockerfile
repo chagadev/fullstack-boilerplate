@@ -39,9 +39,11 @@ ENV NODE_ENV production
 COPY --from=builder /tmp/node_modules/ ./node_modules/
 COPY --from=builder /app/node_modules/.prisma/ ./node_modules/.prisma/
 COPY --from=builder /app/dist/ ./dist/
+COPY ./docker-entrypoint.sh /
 
 USER node
 
 EXPOSE 4000
 
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["node", "./dist/main.js"]
