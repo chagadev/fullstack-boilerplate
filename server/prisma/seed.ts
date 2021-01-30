@@ -1,4 +1,4 @@
-import "../paths";
+import "../../paths";
 import { PrismaClient, Role } from "@prisma/client";
 import { config } from "@server/config";
 import { encryptPassword } from "@server/backend/plugins/auth-local";

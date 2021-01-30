@@ -1,7 +1,7 @@
 {
   "name": "fullstack-boilerplate",
   "description": "Fullstack application boilerplate",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "license": "MIT",
   "private": true,
   "workspaces": [
@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build:prisma": "yarn workspace @server/prisma run generate",
-    "build:schema": "ts-node -r ./server/paths.ts -T ./server/schema/index.ts --nexus-generate",
+    "build:schema": "ts-node -r ./paths.ts -T ./server/schema/index.ts --nexus-generate",
     "build:codegen": "graphql-codegen",
     "build:client": "yarn workspace @client/web run build",
     "build:server": "tsc",
@@ -21,12 +21,12 @@
     "dev:prisma": "yarn workspace @server/prisma run dev",
     "dev:codegen": "graphql-codegen --watch",
     "dev:client": "yarn workspace @client/web run dev",
-    "dev:server": "ts-node-dev --transpile-only --no-notify ./server/main.ts",
+    "dev:server": "ts-node-dev --transpile-only --no-notify ./main.ts",
     "dev": "run-p dev:*",
     "lint": "eslint --ext .js,.ts,.vue --fix --ignore-path .gitignore .",
     "migrate": "yarn workspace @server/prisma run migrate",
     "postversion": "set-versions -w",
-    "seed": "ts-node -r ./server/paths.ts -T ./server/prisma/seed.ts",
+    "seed": "ts-node -r ./paths.ts -T ./server/prisma/seed.ts",
     "start": "NODE_ENV=production node ./dist/main.js",
     "studio": "yarn workspace @server/prisma run studio"
   },
