@@ -41,7 +41,7 @@ export const config = {
     },
   },
   backend: {
-    host: env.get("BACKEND_HOST").default("localhost").asString(),
+    host: env.get("BACKEND_HOST").default("0.0.0.0").asString(),
     port: env.get("BACKEND_PORT").default("4000").asPortNumber(),
   },
   mode,

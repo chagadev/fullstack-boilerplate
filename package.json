@@ -26,7 +26,6 @@
     "dev": "run-p dev:*",
     "lint": "eslint --ext .js,.ts,.vue --fix --ignore-path .gitignore .",
     "migrate": "yarn workspace @server/prisma run migrate",
-    "postinstall": "yarn build",
     "postversion": "set-versions -w",
     "seed": "ts-node -r ./paths.ts -T ./server/prisma/seed.ts",
     "start": "NODE_ENV=production node ./dist/main.js",
