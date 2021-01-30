@@ -5,13 +5,13 @@
   "private": true,
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "fastify": "^3.10.1",
+    "fastify": "^3.11.0",
     "fastify-cookie": "^5.1.0",
-    "fastify-http-proxy": "^4.2.0",
+    "fastify-http-proxy": "^4.3.0",
     "fastify-jwt": "^2.3.0",
     "fastify-plugin": "^3.0.0",
     "fastify-static": "^3.4.0",
-    "mercurius": "^6.10.0",
+    "mercurius": "^6.11.0",
     "mercurius-upload": "^1.1.1"
   },
   "devDependencies": {

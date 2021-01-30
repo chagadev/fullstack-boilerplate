@@ -83,9 +83,9 @@ export interface NexusGenObjects {
   Subscription: {};
   User: {
     // root type
-    email?: string | null; // String
-    id?: number | null; // Int
-    role?: NexusGenEnums["Role"] | null; // Role
+    email: string; // String!
+    id: number; // Int!
+    role: NexusGenEnums["Role"]; // Role!
   };
 }
 
@@ -100,7 +100,7 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars & NexusGenEnu
 export interface NexusGenFieldTypes {
   Mutation: {
     // field return type
-    createOneUser: NexusGenRootTypes["User"] | null; // User
+    createOneUser: NexusGenRootTypes["User"]; // User!
     deleteOneUser: NexusGenRootTypes["User"] | null; // User
     ping: string | null; // String
     updateOneUser: NexusGenRootTypes["User"] | null; // User
@@ -117,9 +117,9 @@ export interface NexusGenFieldTypes {
   };
   User: {
     // field return type
-    email: string | null; // String
-    id: number | null; // Int
-    role: NexusGenEnums["Role"] | null; // Role
+    email: string; // String!
+    id: number; // Int!
+    role: NexusGenEnums["Role"]; // Role!
   };
 }
 

@@ -19,7 +19,7 @@ export type EnumRoleFieldUpdateOperationsInput = {
 
 export type Mutation = {
   __typename?: "Mutation";
-  createOneUser?: Maybe<User>;
+  createOneUser: User;
   deleteOneUser?: Maybe<User>;
   ping?: Maybe<Scalars["String"]>;
   updateOneUser?: Maybe<User>;
@@ -73,9 +73,9 @@ export type Subscription = {
 
 export type User = {
   __typename?: "User";
-  email?: Maybe<Scalars["String"]>;
-  id?: Maybe<Scalars["Int"]>;
-  role?: Maybe<Role>;
+  email: Scalars["String"];
+  id: Scalars["Int"];
+  role: Role;
 };
 
 export type UserCreateInput = {

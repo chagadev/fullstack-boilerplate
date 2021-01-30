@@ -30,17 +30,17 @@
     "studio": "yarn workspace @server/prisma run studio"
   },
   "dependencies": {
-    "graphql": "^15.4.0",
+    "graphql": "^15.5.0",
     "module-alias": "^2.2.2"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.20.0",
-    "@graphql-codegen/typescript": "^1.20.0",
-    "@graphql-codegen/typescript-operations": "^1.17.13",
+    "@graphql-codegen/cli": "^1.20.1",
+    "@graphql-codegen/typescript": "^1.20.2",
+    "@graphql-codegen/typescript-operations": "^1.17.14",
     "@types/module-alias": "^2.0.0",
     "@types/node": "^14.14.22",
-    "@typescript-eslint/eslint-plugin": "^4.14.0",
-    "@typescript-eslint/parser": "^4.14.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
