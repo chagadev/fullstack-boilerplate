@@ -17,6 +17,7 @@
     "build": "run-s build:*",
     "clean:dist": "rm -rf ./dist",
     "clean:npm": "rm -rf ./node_modules ./**/*/node_modules ./*.lock ./*.log",
+    "clean:generated": "rm -rf ./**/generated",
     "clean": "run-s clean:*",
     "dev:prisma": "yarn workspace @server/prisma run dev",
     "dev:codegen": "graphql-codegen --watch",
