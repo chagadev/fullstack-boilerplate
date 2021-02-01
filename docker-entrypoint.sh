@@ -5,6 +5,8 @@ set -e
 /app/server/prisma/node_modules/.bin/prisma migrate deploy --schema /app/server/prisma/schema.prisma --preview-feature
 
 # Seed database
-node /app/dist/server/prisma/seed.js
+if [ "$SEED_DATABASE" == true ] ; then
+  node /app/dist/server/prisma/seed.js
+fi
 
 exec "$@"
