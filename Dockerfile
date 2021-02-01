@@ -5,10 +5,7 @@ RUN apt-get update && apt-get install --no-install-recommends --yes openssl
 
 WORKDIR /app
 
-### BUILDER ###
-FROM base AS builder
-
-# Install production dependencies
+# Copy all package.json files
 COPY *.json yarn.lock ./
 COPY client/web/*.json ./client/web/
 COPY server/backend/*.json ./server/backend/
@@ -16,6 +13,10 @@ COPY server/config/*.json ./server/config/
 COPY server/prisma/*.json ./server/prisma/
 COPY server/schema/*.json ./server/schema/
 
+### BUILDER ###
+FROM base AS builder
+
+# Install production dependencies
 RUN yarn install --production --pure-lockfile
 RUN cp -RL ./node_modules/ /tmp/node_modules/
 
@@ -37,7 +38,8 @@ ENV NODE_ENV production
 
 # Copy runtime dependencies
 COPY --from=builder /tmp/node_modules/ ./node_modules/
-COPY --from=builder /app/node_modules/.prisma/ ./node_modules/.prisma/
+COPY --from=builder /app/node_modules/.prisma/client/ ./node_modules/.prisma/client/
+COPY --from=builder /app/server/prisma/ ./server/prisma/
 COPY --from=builder /app/dist/ ./dist/
 COPY ./docker-entrypoint.sh /
 
