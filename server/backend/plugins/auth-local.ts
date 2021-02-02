@@ -19,17 +19,14 @@ const authLocalPlugin: FastifyPluginCallback = (fastify, _opts, next) => {
       email: string;
       password: string;
     };
-    Querystring: {
-      redirect?: string;
-    };
-  }>("/api/auth/login", {}, async ({ body: { email, password }, query }, reply) => {
+  }>("/api/auth/login", {}, async ({ body: { email, password } }, reply) => {
     try {
       const user = await prisma.user.findUnique({ where: { email } });
       if (verifyPassword(password, user.password)) {
-        return reply.setAuthCookie(user as SignPayloadType).redirect(query.redirect || "/");
+        return reply.setAuthCookie(user as SignPayloadType).code(200);
       }
     } catch (error) {}
-    return reply.code(401).redirect("/");
+    return reply.code(401);
   });
 
   // Local registration
@@ -38,15 +35,12 @@ const authLocalPlugin: FastifyPluginCallback = (fastify, _opts, next) => {
       email: string;
       password: string;
     };
-    Querystring: {
-      redirect?: string;
-    };
-  }>("/api/auth/register", {}, async ({ body: { email, password }, query }, reply) => {
+  }>("/api/auth/register", {}, async ({ body: { email, password } }, reply) => {
     try {
       const user = await prisma.user.create({ data: { email, password: encryptPassword(password) } });
-      return reply.setAuthCookie(user as SignPayloadType).redirect(query.redirect || "/");
+      return reply.setAuthCookie(user as SignPayloadType).code(200);
     } catch (error) {
-      return reply.code(401).redirect("/");
+      return reply.code(401);
     }
   });
 
