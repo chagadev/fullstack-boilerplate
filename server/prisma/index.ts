@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+export * from "@prisma/client";
 
 export class Prisma extends PrismaClient {
   private static instance: Prisma;

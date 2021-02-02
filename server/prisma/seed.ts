@@ -1,19 +1,18 @@
 import "../../paths";
-import { PrismaClient, Role } from "@prisma/client";
-import { config } from "@server/config";
-import { encryptPassword } from "@server/backend/plugins/auth-local";
+import { PrismaClient } from "@prisma/client";
+import * as seeds from "./seeds";
+
+export interface SeedResult {
+  message: string;
+}
 
 const prisma = new PrismaClient();
 
 async function main() {
-  // Upsert admin user
-  config.seed.adminUser.password = encryptPassword(config.seed.adminUser.password);
-  const adminUser = await prisma.user.upsert({
-    where: { email: config.seed.adminUser.email },
-    create: { ...config.seed.adminUser, role: Role.ADMIN },
-    update: { ...config.seed.adminUser, role: Role.ADMIN },
-  });
-  console.log(`Upserted admin user ${adminUser.email}`);
+  for (const key of Object.keys(seeds)) {
+    const { message } = await seeds[key](prisma);
+    console.log(message);
+  }
 }
 
 main()
