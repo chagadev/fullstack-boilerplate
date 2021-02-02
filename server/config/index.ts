@@ -36,7 +36,7 @@ dotenvConfig({ path: `${rootPath}/.env` });
 export const config = {
   auth: {
     jwt: {
-      cookieName: env.get("AUTH_JWT_COOKIE_NAME").default("cortex5-auth").asString(),
+      cookieName: env.get("AUTH_JWT_COOKIE_NAME").default("fullstack-boilerplate-auth").asString(),
       secret: env.get("AUTH_JWT_SECRET").default("supersecret").asString(),
     },
   },
