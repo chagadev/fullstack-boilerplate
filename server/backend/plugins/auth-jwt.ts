@@ -29,8 +29,25 @@ const authJwtPlugin: FastifyPluginCallback = (fastify, _opts, next) => {
   // Register fastify-jwt
   fastify.register(fastifyJwt, {
     secret: config.auth.jwt.secret,
-    cookie: {
-      cookieName: config.auth.jwt.cookieName,
+    verify: {
+      extractToken: (request) => {
+        if (request.headers && request.headers.authorization) {
+          // Bearer token in authorization header
+          const parts = request.headers.authorization.split("Bearer ");
+          if (parts.length === 2) return parts[1];
+        } else if (
+          request.cookies[`${config.auth.jwt.cookiePrefix}-payload`] &&
+          request.cookies[`${config.auth.jwt.cookiePrefix}-signature`]
+        ) {
+          // JWT from payload / signature cookies
+          return (
+            request.cookies[`${config.auth.jwt.cookiePrefix}-payload`] +
+            "." +
+            request.cookies[`${config.auth.jwt.cookiePrefix}-signature`]
+          );
+        }
+        return null;
+      },
     },
   });
 
@@ -47,15 +64,20 @@ const authJwtPlugin: FastifyPluginCallback = (fastify, _opts, next) => {
   fastify.decorateReply("setAuthCookie", function (jwtPayload: SignPayloadType | null) {
     const cookieOptions = {
       path: "/",
-      httpOnly: true,
       sameSite: true,
     };
     if (jwtPayload) {
       delete (jwtPayload as any).password; // Make sure password is never stored in cookie
-      const token = fastify.jwt.sign(jwtPayload);
-      this.setCookie(config.auth.jwt.cookieName, token, cookieOptions);
+      const [header, payload, signature] = fastify.jwt.sign(jwtPayload).split(".");
+      this.setCookie(`${config.auth.jwt.cookiePrefix}-payload`, `${header}.${payload}`, cookieOptions);
+      this.setCookie(
+        `${config.auth.jwt.cookiePrefix}-signature`,
+        signature,
+        Object.assign(cookieOptions, { httpOnly: true }),
+      );
     } else {
-      this.clearCookie(config.auth.jwt.cookieName, cookieOptions);
+      this.clearCookie(`${config.auth.jwt.cookiePrefix}-payload`, cookieOptions);
+      this.clearCookie(`${config.auth.jwt.cookiePrefix}-signature`, Object.assign(cookieOptions, { httpOnly: true }));
     }
 
     return this.send({ user: jwtPayload });
@@ -64,11 +86,8 @@ const authJwtPlugin: FastifyPluginCallback = (fastify, _opts, next) => {
   // Logout
   fastify.get("/api/auth/logout", {}, async (request, reply) => {
     return reply
-      .clearCookie(config.auth.jwt.cookieName, {
-        path: "/",
-        httpOnly: true,
-        sameSite: true,
-      })
+      .clearCookie(`${config.auth.jwt.cookiePrefix}-payload`, { path: "/" })
+      .clearCookie(`${config.auth.jwt.cookiePrefix}-signature`, { path: "/" })
       .send({ user: null });
   });
 

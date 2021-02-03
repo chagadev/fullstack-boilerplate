@@ -5,7 +5,7 @@ import { resolve } from "path";
 export interface Config {
   auth: {
     jwt: {
-      cookieName: string;
+      cookiePrefix: string;
       secret: string;
     };
   };
@@ -36,7 +36,7 @@ dotenvConfig({ path: `${rootPath}/.env` });
 export const config = {
   auth: {
     jwt: {
-      cookieName: env.get("AUTH_JWT_COOKIE_NAME").default("fullstack-boilerplate-auth").asString(),
+      cookiePrefix: env.get("AUTH_JWT_COOKIE_PREFIX").default("fullstack-boilerplate").asString(),
       secret: env.get("AUTH_JWT_SECRET").default("supersecret").asString(),
     },
   },
