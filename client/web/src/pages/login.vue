@@ -62,8 +62,10 @@ export default defineComponent({
     const password = ref("");
     const router = useRouter();
     async function onLoginSubmit() {
-      await onLogin({ email: email.value, password: password.value });
-      router.push("/");
+      const user = await onLogin({ email: email.value, password: password.value });
+      if (user) {
+        router.push("/");
+      }
     }
     return { currentUser, email, password, onLoginSubmit };
   },

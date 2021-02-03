@@ -10,7 +10,7 @@ export async function onLogin({ email, password }: { email: string; password: st
     body: JSON.stringify({ email, password }),
   });
   const { user } = await response.json();
-  currentUser.value = user;
+  return (currentUser.value = user);
 }
 
 export async function onLogout() {
@@ -18,5 +18,6 @@ export async function onLogout() {
     credentials: "same-origin",
     redirect: "follow",
   });
-  console.log(response.json());
+  const { user } = await response.json();
+  return (currentUser.value = user);
 }

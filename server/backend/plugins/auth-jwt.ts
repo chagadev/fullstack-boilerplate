@@ -58,7 +58,7 @@ const authJwtPlugin: FastifyPluginCallback = (fastify, _opts, next) => {
       this.clearCookie(config.auth.jwt.cookieName, cookieOptions);
     }
 
-    return this;
+    return this.send({ user: jwtPayload });
   });
 
   // Logout
