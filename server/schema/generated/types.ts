@@ -13,8 +13,8 @@ export type Scalars = {
   Upload: any;
 };
 
-export type EnumRoleFieldUpdateOperationsInput = {
-  set?: Maybe<Role>;
+export type EnumUserRoleFieldUpdateOperationsInput = {
+  set?: Maybe<UserRole>;
 };
 
 export type Mutation = {
@@ -56,12 +56,6 @@ export type QueryUsersArgs = {
   last?: Maybe<Scalars["Int"]>;
 };
 
-export enum Role {
-  Admin = "ADMIN",
-  Editor = "EDITOR",
-  User = "USER",
-}
-
 export type StringFieldUpdateOperationsInput = {
   set?: Maybe<Scalars["String"]>;
 };
@@ -75,19 +69,25 @@ export type User = {
   __typename?: "User";
   email: Scalars["String"];
   id: Scalars["Int"];
-  role: Role;
+  role: UserRole;
 };
 
 export type UserCreateInput = {
   email: Scalars["String"];
   password: Scalars["String"];
-  role?: Maybe<Role>;
+  role?: Maybe<UserRole>;
 };
+
+export enum UserRole {
+  Admin = "ADMIN",
+  Editor = "EDITOR",
+  User = "USER",
+}
 
 export type UserUpdateInput = {
   email?: Maybe<StringFieldUpdateOperationsInput>;
   password?: Maybe<StringFieldUpdateOperationsInput>;
-  role?: Maybe<EnumRoleFieldUpdateOperationsInput>;
+  role?: Maybe<EnumUserRoleFieldUpdateOperationsInput>;
 };
 
 export type UserWhereUniqueInput = {

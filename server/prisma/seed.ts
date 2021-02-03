@@ -4,14 +4,18 @@ import * as seeds from "./seeds";
 
 export interface SeedResult {
   message: string;
+  warnings?: string[];
 }
 
 const prisma = new PrismaClient();
 
 async function main() {
   for (const key of Object.keys(seeds)) {
-    const { message } = await seeds[key](prisma);
+    const { message, warnings } = await seeds[key](prisma);
     console.log(message);
+    if (warnings.length) {
+      console.log(warnings);
+    }
   }
 }
 

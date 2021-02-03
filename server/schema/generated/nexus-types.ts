@@ -37,9 +37,9 @@ declare global {
 }
 
 export interface NexusGenInputs {
-  EnumRoleFieldUpdateOperationsInput: {
+  EnumUserRoleFieldUpdateOperationsInput: {
     // input type
-    set?: NexusGenEnums["Role"] | null; // Role
+    set?: NexusGenEnums["UserRole"] | null; // UserRole
   };
   StringFieldUpdateOperationsInput: {
     // input type
@@ -49,13 +49,13 @@ export interface NexusGenInputs {
     // input type
     email: string; // String!
     password: string; // String!
-    role?: NexusGenEnums["Role"] | null; // Role
+    role?: NexusGenEnums["UserRole"] | null; // UserRole
   };
   UserUpdateInput: {
     // input type
     email?: NexusGenInputs["StringFieldUpdateOperationsInput"] | null; // StringFieldUpdateOperationsInput
     password?: NexusGenInputs["StringFieldUpdateOperationsInput"] | null; // StringFieldUpdateOperationsInput
-    role?: NexusGenInputs["EnumRoleFieldUpdateOperationsInput"] | null; // EnumRoleFieldUpdateOperationsInput
+    role?: NexusGenInputs["EnumUserRoleFieldUpdateOperationsInput"] | null; // EnumUserRoleFieldUpdateOperationsInput
   };
   UserWhereUniqueInput: {
     // input type
@@ -65,7 +65,7 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
-  Role: "ADMIN" | "EDITOR" | "USER";
+  UserRole: "ADMIN" | "EDITOR" | "USER";
 }
 
 export interface NexusGenScalars {
@@ -85,7 +85,7 @@ export interface NexusGenObjects {
     // root type
     email: string; // String!
     id: number; // Int!
-    role: NexusGenEnums["Role"]; // Role!
+    role: NexusGenEnums["UserRole"]; // UserRole!
   };
 }
 
@@ -119,7 +119,7 @@ export interface NexusGenFieldTypes {
     // field return type
     email: string; // String!
     id: number; // Int!
-    role: NexusGenEnums["Role"]; // Role!
+    role: NexusGenEnums["UserRole"]; // UserRole!
   };
 }
 
@@ -145,7 +145,7 @@ export interface NexusGenFieldTypeNames {
     // field return type name
     email: "String";
     id: "Int";
-    role: "Role";
+    role: "UserRole";
   };
 }
 

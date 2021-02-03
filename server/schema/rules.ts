@@ -1,5 +1,5 @@
 import { generic, ruleType, ShieldCache } from "nexus-shield";
-import { Role } from "@prisma/client";
+import { UserRole } from "@server/prisma";
 
 export const isAuthenticated = generic(
   ruleType({
@@ -10,12 +10,12 @@ export const isAuthenticated = generic(
   }),
 );
 
-export const hasRole = (role: Role) => {
+export const hasUserRole = (role: UserRole) => {
   return generic(
     ruleType({
       cache: ShieldCache.CONTEXTUAL,
       resolve: (_root, _args, { request }) => {
-        return [role, Role.ADMIN].includes(request.user?.role);
+        return [role, UserRole.ADMIN].includes(request.user?.role);
       },
     }),
   );

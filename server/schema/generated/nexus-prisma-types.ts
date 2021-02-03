@@ -37,16 +37,16 @@ interface NexusPrismaOutputs {
   Mutation: {
     createOneUser: "User";
     updateOneUser: "User";
-    updateManyUser: "BatchPayload";
+    updateManyUser: "AffectedRowsOutput";
     deleteOneUser: "User";
-    deleteManyUser: "BatchPayload";
+    deleteManyUser: "AffectedRowsOutput";
     upsertOneUser: "User";
   };
   User: {
     id: "Int";
     email: "String";
     password: "String";
-    role: "Role";
+    role: "UserRole";
   };
 }
 

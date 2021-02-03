@@ -1,6 +1,6 @@
 import { extendType, objectType } from "nexus";
-import { hasRole } from "@server/schema/rules";
-import { Role } from "@prisma/client";
+import { hasUserRole } from "@server/schema/rules";
+import { UserRole } from "@prisma/client";
 
 export const UserObject = objectType({
   name: "User",
@@ -14,16 +14,16 @@ export const UserObject = objectType({
 export const UserQuery = extendType({
   type: "Query",
   definition(t) {
-    t.crud.user({ shield: hasRole(Role.EDITOR)() });
-    t.crud.users({ shield: hasRole(Role.EDITOR)() });
+    t.crud.user({ shield: hasUserRole(UserRole.EDITOR)() });
+    t.crud.users({ shield: hasUserRole(UserRole.EDITOR)() });
   },
 });
 
 export const UserMutation = extendType({
   type: "Mutation",
   definition(t) {
-    t.crud.createOneUser({ shield: hasRole(Role.EDITOR)() });
-    t.crud.deleteOneUser({ shield: hasRole(Role.EDITOR)() });
-    t.crud.updateOneUser({ shield: hasRole(Role.EDITOR)() });
+    t.crud.createOneUser({ shield: hasUserRole(UserRole.EDITOR)() });
+    t.crud.deleteOneUser({ shield: hasUserRole(UserRole.EDITOR)() });
+    t.crud.updateOneUser({ shield: hasUserRole(UserRole.EDITOR)() });
   },
 });
