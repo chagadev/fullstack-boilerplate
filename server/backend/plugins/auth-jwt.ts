@@ -62,9 +62,10 @@ const authJwtPlugin: FastifyPluginCallback = (fastify, _opts, next) => {
 
   // Provide reply decorator for setting authentication cookie from user
   fastify.decorateReply("setAuthCookie", function (jwtPayload: SignPayloadType | null) {
+    // TODO: Detect SSL and set secure / sameSite accordingly
     const cookieOptions = {
       path: "/",
-      sameSite: true,
+      sameSite: "Lax",
     };
     if (jwtPayload) {
       delete (jwtPayload as any).password; // Make sure password is never stored in cookie
@@ -85,10 +86,7 @@ const authJwtPlugin: FastifyPluginCallback = (fastify, _opts, next) => {
 
   // Logout
   fastify.get("/api/auth/logout", {}, async (request, reply) => {
-    return reply
-      .clearCookie(`${config.auth.jwt.cookiePrefix}-payload`, { path: "/" })
-      .clearCookie(`${config.auth.jwt.cookiePrefix}-signature`, { path: "/" })
-      .send({ user: null });
+    return reply.setAuthCookie(null);
   });
 
   next();

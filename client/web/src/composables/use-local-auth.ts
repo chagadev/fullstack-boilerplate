@@ -1,6 +1,15 @@
 import { ref } from "vue";
+import * as Cookies from "js-cookie";
 
 export const currentUser = ref(null);
+try {
+  const token = Cookies.get("fullstack-boilerplate-payload");
+  if (token) {
+    const user = JSON.parse(atob(token.split(".")[1]));
+    delete user.iat;
+    currentUser.value = user;
+  }
+} catch (error) {}
 
 export async function onLogin({ email, password }: { email: string; password: string }) {
   const response = await fetch("/api/auth/login", {
