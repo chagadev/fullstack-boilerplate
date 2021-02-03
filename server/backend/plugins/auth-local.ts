@@ -3,6 +3,7 @@ import { FastifyPluginCallback } from "fastify";
 import { prisma } from "@server/prisma";
 import { compareSync, hashSync } from "bcryptjs";
 import { SignPayloadType } from "fastify-jwt";
+import { config } from "@server/config";
 
 export function verifyPassword(password: string, hash: string): boolean {
   return compareSync(password, hash);
@@ -23,25 +24,11 @@ const authLocalPlugin: FastifyPluginCallback = (fastify, _opts, next) => {
     try {
       const user = await prisma.user.findUnique({ where: { email } });
       if (verifyPassword(password, user.password)) {
-        return reply.setAuthCookie(user as SignPayloadType).code(200);
+        delete user.password;
+        return reply.setAuthCookie(user as SignPayloadType).send({ user });
       }
     } catch (error) {}
     return reply.code(401);
-  });
-
-  // Local registration
-  fastify.post<{
-    Body: {
-      email: string;
-      password: string;
-    };
-  }>("/api/auth/register", {}, async ({ body: { email, password } }, reply) => {
-    try {
-      const user = await prisma.user.create({ data: { email, password: encryptPassword(password) } });
-      return reply.setAuthCookie(user as SignPayloadType).code(200);
-    } catch (error) {
-      return reply.code(401);
-    }
   });
 
   next();

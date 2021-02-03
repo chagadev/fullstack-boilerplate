@@ -44,14 +44,32 @@ const authJwtPlugin: FastifyPluginCallback = (fastify, _opts, next) => {
   });
 
   // Provide reply decorator for setting authentication cookie from user
-  fastify.decorateReply("setAuthCookie", function (jwtPayload: SignPayloadType) {
-    delete (jwtPayload as any).password; // Make sure password is never stored in cookie
-    const token = fastify.jwt.sign(jwtPayload);
-    this.setCookie(config.auth.jwt.cookieName, token, {
+  fastify.decorateReply("setAuthCookie", function (jwtPayload: SignPayloadType | null) {
+    const cookieOptions = {
+      path: "/",
       httpOnly: true,
       sameSite: true,
-    });
+    };
+    if (jwtPayload) {
+      delete (jwtPayload as any).password; // Make sure password is never stored in cookie
+      const token = fastify.jwt.sign(jwtPayload);
+      this.setCookie(config.auth.jwt.cookieName, token, cookieOptions);
+    } else {
+      this.clearCookie(config.auth.jwt.cookieName, cookieOptions);
+    }
+
     return this;
+  });
+
+  // Logout
+  fastify.get("/api/auth/logout", {}, async (request, reply) => {
+    return reply
+      .clearCookie(config.auth.jwt.cookieName, {
+        path: "/",
+        httpOnly: true,
+        sameSite: true,
+      })
+      .send({ user: null });
   });
 
   next();
