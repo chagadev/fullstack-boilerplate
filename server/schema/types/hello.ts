@@ -1,4 +1,6 @@
+import { UserRole } from ".prisma/client";
 import { extendType, nonNull, subscriptionField } from "nexus";
+import { hasUserRole } from "../rules";
 
 export const HelloQuery = extendType({
   type: "Query",
@@ -6,6 +8,7 @@ export const HelloQuery = extendType({
     t.field("hello", {
       type: nonNull("String"),
       resolve: () => `Hello World`,
+      shield: hasUserRole(UserRole.EDITOR)(),
     });
   },
 });

@@ -28,5 +28,6 @@ export async function onLogout() {
     redirect: "follow",
   });
   const { user } = await response.json();
+  window.localStorage.clear();
   return (currentUser.value = user);
 }
