@@ -17,6 +17,16 @@ export interface Config {
   paths: {
     root: string;
   };
+  providers: {
+    mailer: {
+      host: string;
+      port: number;
+      auth: {
+        user: string;
+        pass: string;
+      };
+    };
+  };
   seed: {
     adminUser: {
       email: string;
@@ -47,6 +57,16 @@ export const config = {
   mode,
   paths: {
     root: rootPath,
+  },
+  providers: {
+    mailer: {
+      host: env.get("MAILER_SMTP_HOST").default("localhost").asString(),
+      port: env.get("MAILER_SMTP_PORT").default("465").asPortNumber(),
+      auth: {
+        user: env.get("MAILER_SMTP_USER").asString(),
+        pass: env.get("MAILER_SMTP_PASSWORD").asString(),
+      },
+    },
   },
   seed: {
     adminUser: {
