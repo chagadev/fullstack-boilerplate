@@ -100,6 +100,12 @@ export type HelloQueryVariables = Exact<{ [key: string]: never }>;
 
 export type HelloQuery = { __typename?: "Query" } & Pick<Query, "hello">;
 
+export type UsersQueryVariables = Exact<{ [key: string]: never }>;
+
+export type UsersQuery = { __typename?: "Query" } & {
+  users: Array<{ __typename?: "User" } & Pick<User, "id" | "email" | "role">>;
+};
+
 export const HelloDocument: DocumentNode<HelloQuery, HelloQueryVariables> = {
   kind: "Document",
   definitions: [
@@ -108,6 +114,33 @@ export const HelloDocument: DocumentNode<HelloQuery, HelloQueryVariables> = {
       operation: "query",
       name: { kind: "Name", value: "Hello" },
       selectionSet: { kind: "SelectionSet", selections: [{ kind: "Field", name: { kind: "Name", value: "hello" } }] },
+    },
+  ],
+};
+export const UsersDocument: DocumentNode<UsersQuery, UsersQueryVariables> = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "Users" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "users" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "email" } },
+                { kind: "Field", name: { kind: "Name", value: "role" } },
+              ],
+            },
+          },
+        ],
+      },
     },
   ],
 };

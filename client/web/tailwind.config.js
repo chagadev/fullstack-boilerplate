@@ -10,7 +10,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [],
   darkMode: false,
   purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
 };
