@@ -8,12 +8,14 @@
 import { defineComponent, computed } from "vue";
 import { useRoute } from "vue-router";
 
+import AdminLayout from "./layouts/admin.vue";
 import DefaultLayout from "./layouts/default.vue";
 import EmptyLayout from "./layouts/empty.vue";
 
 export default defineComponent({
   name: "App",
   components: {
+    "admin-layout": AdminLayout,
     "default-layout": DefaultLayout,
     "empty-layout": EmptyLayout,
   },

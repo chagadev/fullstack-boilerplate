@@ -17,9 +17,9 @@ declare module "vue-router" {
 export const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", component: Home },
+    { path: "/", component: Home, meta: { layout: "admin" } },
     { path: "/login", component: Login, meta: { layout: "empty", isAnonymous: true } },
-    { path: "/admin/:pathMatch(.*)*", component: AdminHome, meta: { isAuthenticated: true } },
+    { path: "/admin/:pathMatch(.*)*", component: AdminHome, meta: { layout: "admin", isAuthenticated: true } },
     { path: "/:pathMatch(.*)*", component: NotFound },
   ],
 });
