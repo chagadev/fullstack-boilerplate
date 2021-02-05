@@ -4,6 +4,7 @@ import { currentUser } from "./composables/use-local-auth";
 import Home from "./pages/index.vue";
 import Login from "./pages/login.vue";
 import AdminHome from "./pages/admin/index.vue";
+import AdminUsers from "./pages/admin/users.vue";
 import NotFound from "./pages/[...all].vue";
 
 declare module "vue-router" {
@@ -19,7 +20,8 @@ export const router = createRouter({
   routes: [
     { path: "/", component: Home },
     { path: "/login", component: Login, meta: { layout: "empty", isAnonymous: true } },
-    { path: "/admin/:pathMatch(.*)*", component: AdminHome, meta: { isAuthenticated: true } },
+    { path: "/admin/", component: AdminHome, meta: { isAuthenticated: true } },
+    { path: "/admin/users", component: AdminUsers, meta: { isAuthenticated: true } },
     { path: "/:pathMatch(.*)*", component: NotFound },
   ],
 });
