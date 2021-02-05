@@ -52,6 +52,7 @@ import { currentUser, onLogin } from "../composables/use-local-auth";
 import { useRoute, useRouter } from "vue-router";
 
 export default defineComponent({
+  name: "Login",
   setup() {
     const email = ref("");
     const password = ref("");

@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     outDir: "../../dist/public",
   },
-  plugins: [vue(), components()],
+  plugins: [vue(), components({ directoryAsNamespace: true })],
   server: {
     host: process.env.WEB_HOST || "localhost",
     port: parseInt(process.env.WEB_PORT) || 3000,

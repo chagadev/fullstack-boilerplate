@@ -8,6 +8,7 @@ import NotFound from "./pages/[...all].vue";
 
 declare module "vue-router" {
   interface RouteMeta {
+    layout?: string;
     isAnonymous?: boolean;
     isAuthenticated?: boolean;
   }
@@ -17,7 +18,7 @@ export const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", component: Home },
-    { path: "/login", component: Login, meta: { isAnonymous: true } },
+    { path: "/login", component: Login, meta: { layout: "empty", isAnonymous: true } },
     { path: "/admin/:pathMatch(.*)*", component: AdminHome, meta: { isAuthenticated: true } },
     { path: "/:pathMatch(.*)*", component: NotFound },
   ],
