@@ -8,6 +8,7 @@ WORKDIR /app
 # Copy all package.json files
 COPY *.json yarn.lock ./
 COPY client/web/*.json ./client/web/
+COPY providers/mailer/*.json ./providers/mailer/
 COPY server/backend/*.json ./server/backend/
 COPY server/config/*.json ./server/config/
 COPY server/prisma/*.json ./server/prisma/
@@ -26,6 +27,7 @@ RUN yarn install --pure-lockfile
 # Copy source files
 COPY .gitignore *.js *.ts  ./
 COPY client/ ./client/
+COPY providers/ ./providers/
 COPY server/ ./server/
 
 # Build
