@@ -7,10 +7,12 @@ import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 
 import Button from "primevue/button";
+import InputText from "primevue/inputtext";
 
 export const primeVue = {
   install: (app: App) => {
     app.use(PrimeVue);
     app.component("Button", Button);
+    app.component("InputText", InputText);
   },
 };
