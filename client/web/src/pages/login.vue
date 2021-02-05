@@ -49,17 +49,18 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { currentUser, onLogin } from "../composables/use-local-auth";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 export default defineComponent({
   setup() {
     const email = ref("");
     const password = ref("");
+    const route = useRoute();
     const router = useRouter();
     async function onLoginSubmit() {
       const user = await onLogin({ email: email.value, password: password.value });
       if (user) {
-        router.push("/");
+        router.push((route.query.redirect as string) || "/");
       }
     }
     return { currentUser, email, password, onLoginSubmit };
