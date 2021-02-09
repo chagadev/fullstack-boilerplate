@@ -1,14 +1,14 @@
 import { onGlobalSetup } from "@nuxtjs/composition-api";
-import { useClient } from "villus";
-import fetchPolyfill from "node-fetch";
-
-// @ts-expect-error @see https://github.com/logaretm/villus/issues/59
-global.fetch = fetchPolyfill;
+import { useClient, cache, dedup } from "villus";
+import { multipart } from "@villus/multipart";
+import { batch } from "@villus/batch";
+import fetch from "cross-fetch";
 
 export default () => {
   onGlobalSetup(() => {
     useClient({
       url: "/api/graphql",
+      use: [multipart(), cache(), dedup(), batch({ fetch })],
     });
   });
 };
