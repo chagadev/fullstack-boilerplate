@@ -1,4 +1,4 @@
 export default {
   buildDir: "../../.nuxt",
-  buildModules: ["@nuxt/typescript-build", "@nuxtjs/composition-api"],
+  buildModules: ["@nuxtjs/composition-api", "@nuxt/typescript-build", "@nuxtjs/tailwindcss"],
 };

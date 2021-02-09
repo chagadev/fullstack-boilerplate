@@ -13,6 +13,10 @@
   "devDependencies": {
     "@nuxt/types": "^2.14.12",
     "@nuxt/typescript-build": "^2.0.4",
-    "@nuxtjs/composition-api": "^0.19.1"
+    "@nuxtjs/composition-api": "^0.19.1",
+    "@nuxtjs/tailwindcss": "^3.4.2",
+    "autoprefixer": "^9",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }
