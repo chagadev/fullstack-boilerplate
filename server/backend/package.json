@@ -1,6 +1,6 @@
 {
   "name": "@server/backend",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -9,6 +9,7 @@
     "fastify-cookie": "^5.1.0",
     "fastify-http-proxy": "^4.3.0",
     "fastify-jwt": "^2.3.0",
+    "fastify-nuxtjs": "^1.0.1",
     "fastify-plugin": "^3.0.0",
     "fastify-static": "^3.4.0",
     "mercurius": "^6.12.0",

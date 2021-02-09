@@ -6,8 +6,9 @@ RUN apt-get update && apt-get install --no-install-recommends --yes openssl
 WORKDIR /app
 
 # Copy all package.json files
-COPY *.json yarn.lock ./
-COPY client/web/*.json ./client/web/
+COPY *.json nuxt.config.js yarn.lock ./
+COPY client/nuxt/*.json ./client/nuxt/
+COPY client/nuxt/nuxt.config.js ./client/nuxt/
 COPY providers/mailer/*.json ./providers/mailer/
 COPY server/backend/*.json ./server/backend/
 COPY server/config/*.json ./server/config/
@@ -42,6 +43,7 @@ ENV NODE_ENV production
 COPY --from=builder /tmp/node_modules/ ./node_modules/
 COPY --from=builder /app/node_modules/.prisma/client/ ./node_modules/.prisma/client/
 COPY --from=builder /app/server/prisma/ ./server/prisma/
+COPY --from=builder /app/.nuxt/ ./.nuxt/
 COPY --from=builder /app/dist/ ./dist/
 COPY ./docker-entrypoint.sh /
 

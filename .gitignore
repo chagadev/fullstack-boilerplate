@@ -1,4 +1,5 @@
 .env
+.nuxt
 dist
 node_modules
 *.lock

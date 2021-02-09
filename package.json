@@ -1,7 +1,7 @@
 {
   "name": "fullstack-boilerplate",
   "description": "Fullstack application boilerplate",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "license": "MIT",
   "private": true,
   "workspaces": [
@@ -13,7 +13,7 @@
     "build:prisma": "yarn workspace @server/prisma run generate",
     "build:schema": "ts-node -r ./paths.ts -T ./server/schema/index.ts --nexus-generate",
     "build:codegen": "graphql-codegen",
-    "build:client": "yarn workspace @client/web run build",
+    "build:client": "yarn workspace @client/nuxt run build",
     "build:server": "tsc",
     "build": "run-s build:*",
     "clean:dist": "rm -rf ./dist",
@@ -22,7 +22,6 @@
     "clean": "run-s clean:*",
     "dev:prisma": "yarn workspace @server/prisma run dev",
     "dev:codegen": "graphql-codegen --watch",
-    "dev:client": "yarn workspace @client/web run dev",
     "dev:server": "ts-node-dev --transpile-only --no-notify ./main.ts",
     "dev": "run-p dev:*",
     "lint": "eslint --ext .js,.ts,.vue --fix --ignore-path .gitignore .",
