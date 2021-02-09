@@ -8,13 +8,15 @@
     "dev": "nuxt"
   },
   "dependencies": {
-    "nuxt": "^2.14.12"
+    "nuxt": "^2.14.12",
+    "villus": "^1.0.0-rc.11"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.12",
     "@nuxt/typescript-build": "^2.0.4",
     "@nuxtjs/composition-api": "^0.19.1",
     "@nuxtjs/tailwindcss": "^3.4.2",
+    "@types/node-fetch": "^2.5.8",
     "autoprefixer": "^9",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
