@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build": "nuxt build --quiet",
     "dev": "nuxt"
   },
   "dependencies": {
