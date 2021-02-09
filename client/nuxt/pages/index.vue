@@ -10,12 +10,11 @@
 <script lang="ts">
 import { defineComponent } from "@nuxtjs/composition-api";
 import { useQuery } from "villus";
+import { HelloDocument as query } from "~/generated/graphql-operations";
 
 export default defineComponent({
   setup() {
-    const { data, error, isFetching } = useQuery({
-      query: `{ hello }`,
-    });
+    const { data, error, isFetching } = useQuery({ query });
     return { data, error, isFetching };
   },
 });
