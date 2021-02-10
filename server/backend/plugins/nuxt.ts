@@ -1,11 +1,19 @@
 import fp from "fastify-plugin";
 import { FastifyPluginCallback } from "fastify";
+import fastifyHttpProxy from "fastify-http-proxy";
 import fastifyNuxtJS from "fastify-nuxtjs";
+import { config } from "@server/config";
 
 const nuxtPlugin: FastifyPluginCallback = (fastify, _opts, next) => {
-  fastify.register(fastifyNuxtJS).after(() => {
-    fastify.nuxt("*");
-  });
+  if (config.mode === "production") {
+    fastify.register(fastifyNuxtJS).after(() => {
+      fastify.nuxt("*");
+    });
+  } else {
+    fastify.register(fastifyHttpProxy, {
+      upstream: `http://${config.web.host}:${config.web.port}`,
+    });
+  }
   next();
 };
 

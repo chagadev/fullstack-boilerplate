@@ -23,6 +23,7 @@
     "clean": "run-s clean:*",
     "dev:prisma": "yarn workspace @server/prisma run dev",
     "dev:codegen": "graphql-codegen --watch",
+    "dev:client": "yarn workspace @client/nuxt run dev",
     "dev:server": "ts-node-dev --transpile-only --no-notify ./main.ts",
     "dev": "run-p dev:*",
     "lint": "eslint --ext .js,.ts,.vue --fix --ignore-path .gitignore .",
