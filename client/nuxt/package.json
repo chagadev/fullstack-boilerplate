@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@braid/vue-formulate": "^2.5.0",
+    "@nuxt/http": "^0.6.2",
     "@nuxtjs/composition-api": "^0.19.1",
     "@villus/batch": "^1.0.0-rc.8",
     "@villus/multipart": "^1.0.0-rc.7",
