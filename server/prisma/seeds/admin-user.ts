@@ -1,6 +1,6 @@
 import { PrismaClient, UserRole } from "@prisma/client";
 import { SeedResult } from "@server/prisma/seed";
-import { config } from "@server/config";
+import { config } from "@providers/config";
 import { encryptPassword } from "@server/backend/plugins/auth-local";
 
 export async function seedAdminUser(prisma: PrismaClient): Promise<SeedResult> {

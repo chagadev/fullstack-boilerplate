@@ -2,7 +2,7 @@ import fp from "fastify-plugin";
 import { FastifyPluginCallback } from "fastify";
 import fastifyCookie from "fastify-cookie";
 import fastifyJwt, { SignPayloadType } from "fastify-jwt";
-import { config } from "@server/config";
+import { config } from "@providers/config";
 import { User } from "@server/schema/generated/types";
 
 declare module "fastify-jwt" {

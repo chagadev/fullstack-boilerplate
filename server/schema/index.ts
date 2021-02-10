@@ -2,7 +2,7 @@ import { resolve } from "path";
 import { makeSchema } from "nexus";
 import { nexusPrisma } from "nexus-plugin-prisma";
 import { nexusShield, allow } from "nexus-shield";
-import { config } from "@server/config";
+import { config } from "@providers/config";
 import * as types from "./types";
 
 const shouldGenerateArtifacts = process.argv.includes("--nexus-generate") || config.mode === "development";

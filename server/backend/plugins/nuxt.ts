@@ -2,7 +2,7 @@ import fp from "fastify-plugin";
 import { FastifyPluginCallback } from "fastify";
 import fastifyHttpProxy from "fastify-http-proxy";
 import fastifyNuxtJS from "fastify-nuxtjs";
-import { config } from "@server/config";
+import { config } from "@providers/config";
 
 const nuxtPlugin: FastifyPluginCallback = (fastify, _opts, next) => {
   if (config.mode === "production") {

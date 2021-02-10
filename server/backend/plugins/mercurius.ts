@@ -2,7 +2,7 @@ import fp from "fastify-plugin";
 import { FastifyPluginCallback } from "fastify";
 import mercurius from "mercurius";
 import mercuriusUpload from "mercurius-upload";
-import { config } from "@server/config";
+import { config } from "@providers/config";
 import { schema } from "@server/schema";
 import { getContextFromRequest } from "../context";
 
