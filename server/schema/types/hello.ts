@@ -1,4 +1,4 @@
-import { extendType, nonNull, subscriptionField } from "nexus";
+import { extendType, nonNull, stringArg, subscriptionField } from "nexus";
 
 export const HelloQuery = extendType({
   type: "Query",
@@ -15,12 +15,15 @@ export const PingMutation = extendType({
   definition(t) {
     t.field("ping", {
       type: "String",
-      resolve: (_root, _args, { pubsub }) => {
+      args: {
+        message: stringArg({ default: "Pong!" }),
+      },
+      resolve: (_root, { message }, { pubsub }) => {
         pubsub.publish({
           topic: "ping",
-          payload: "pong",
+          payload: message,
         });
-        return "pong";
+        return message;
       },
     });
   },

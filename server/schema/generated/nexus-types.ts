@@ -159,6 +159,10 @@ export interface NexusGenArgTypes {
       // args
       where: NexusGenInputs["UserWhereUniqueInput"]; // UserWhereUniqueInput!
     };
+    ping: {
+      // args
+      message: string | null; // String
+    };
     updateOneUser: {
       // args
       data: NexusGenInputs["UserUpdateInput"]; // UserUpdateInput!

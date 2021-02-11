@@ -1,21 +1,24 @@
 <template>
   <div id="home">
     <h1 class="text-3xl">Home</h1>
-    <div v-if="isFetching">Loading...</div>
-    <div v-else-if="error">{{ error.message }}</div>
-    <div v-else-if="data">{{ data.hello }}</div>
+    <div v-if="messages">
+      {{ messages }}
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@nuxtjs/composition-api";
-import { useQuery } from "villus";
-import { HelloDocument as query } from "~/generated/graphql-operations";
+import { defineComponent, ref, watch } from "@nuxtjs/composition-api";
+import { useSubscription } from "villus";
 
 export default defineComponent({
   setup() {
-    const { data, error, isFetching } = useQuery({ query });
-    return { data, error, isFetching };
+    const { data } = useSubscription({ query: `subscription { ping }` });
+    let messages = ref<string[]>([]);
+    watch(data, (incoming) => {
+      messages.value.push(incoming.ping);
+    });
+    return { messages };
   },
 });
 </script>

@@ -34,6 +34,10 @@ export type MutationDeleteOneUserArgs = {
   where: UserWhereUniqueInput;
 };
 
+export type MutationPingArgs = {
+  message?: Maybe<Scalars["String"]>;
+};
+
 export type MutationUpdateOneUserArgs = {
   data: UserUpdateInput;
   where: UserWhereUniqueInput;

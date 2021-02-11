@@ -8,7 +8,7 @@ input EnumUserRoleFieldUpdateOperationsInput {
 type Mutation {
   createOneUser(data: UserCreateInput!): User!
   deleteOneUser(where: UserWhereUniqueInput!): User
-  ping: String
+  ping(message: String = "Pong!"): String
   updateOneUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
 }
 
